@@ -1,0 +1,196 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='assets/vendor/bootstrap/css/bootstrap.min.css')
+  link(href='assets/vendor/fonts/circular-std/style.css' rel='stylesheet')
+  link(rel='stylesheet' href='assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+  link(rel='stylesheet' href='assets/vendor/charts/chartist-bundle/chartist.css')
+  link(rel='stylesheet' href='assets/vendor/charts/morris-bundle/morris.css')
+  link(rel='stylesheet' href='assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
+  link(rel='stylesheet' href='assets/vendor/charts/c3charts/c3.css')
+  link(rel='stylesheet' href='assets/vendor/fonts/flag-icon-css/flag-icon.min.css')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='assets/libs/css/style.css')
+  title XDonat - Admin panel
+// ==============================================================
+// main wrapper
+// ==============================================================
+.dashboard-main-wrapper
+  // ==============================================================
+  // navbar
+  // ==============================================================
+  .dashboard-header
+    nav.navbar.navbar-expand-lg.bg-white.fixed-top
+      a.navbar-brand(href='index.html')
+        img(src='assets/images/logo.png' alt='' title='')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto.navbar-right-top
+          li.nav-item.dropdown.notification
+            a#navbarDropdownMenuLink1.nav-link.nav-icons(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              i.fas.fa-fw.fa-bell
+              span.indicator
+            ul.dropdown-menu.dropdown-menu-right.notification-dropdown
+              li
+                .notification-title  Notification
+                .notification-list
+                  .list-group
+                    a.list-group-item.list-group-item-action.active(href='#')
+                      .notification-info
+                        .notification-list-user-img
+                          img.user-avatar-md.rounded-circle(src='assets/images/avatar-2.jpg' alt='')
+                        .notification-list-user-block
+                          span.notification-list-user-name Jeremy Rakestraw
+                          | accepted your invitation to join the team.
+                          .notification-date 2 min ago
+                    a.list-group-item.list-group-item-action(href='#')
+                      .notification-info
+                        .notification-list-user-img
+                          img.user-avatar-md.rounded-circle(src='assets/images/avatar-3.jpg' alt='')
+                        .notification-list-user-block
+                          span.notification-list-user-name Kotok Bash 
+                          | is now following you
+                          .notification-date 2 days ago
+                    a.list-group-item.list-group-item-action(href='#')
+                      .notification-info
+                        .notification-list-user-img
+                          img.user-avatar-md.rounded-circle(src='assets/images/avatar-4.jpg' alt='')
+                        .notification-list-user-block
+                          span.notification-list-user-name Monaan Pechi
+                          |  is watching your main repository
+                          .notification-date 2 min ago
+                    a.list-group-item.list-group-item-action(href='#')
+                      .notification-info
+                        .notification-list-user-img
+                          img.user-avatar-md.rounded-circle(src='assets/images/avatar-5.jpg' alt='')
+                        .notification-list-user-block
+                          span.notification-list-user-name Jessica Caruso
+                          | accepted your invitation to join the team.
+                          .notification-date 2 min ago
+              li
+                .list-footer
+                  a(href='#') View all notifications
+          li.nav-item.dropdown.nav-user
+            a#navbarDropdownMenuLink2.nav-link.nav-user-img(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              img.user-avatar-md.rounded-circle(src='assets/images/avatar-1.jpg' alt='')
+            .dropdown-menu.dropdown-menu-right.nav-user-dropdown(aria-labelledby='navbarDropdownMenuLink2')
+              .nav-user-info
+                h5.mb-0.text-white.nav-user-name Elon Musk
+                span.status
+                span.ml-2 Busy
+              a.dropdown-item(href='#')
+                i.fas.fa-user.mr-2
+                | Account
+              a.dropdown-item(href='#')
+                i.fas.fa-cog.mr-2
+                | Setting
+              a.dropdown-item(href='#')
+                i.fas.fa-power-off.mr-2
+                | Logout
+  // ==============================================================
+  // end navbar
+  // ==============================================================
+  // ==============================================================
+  // left sidebar
+  // ==============================================================
+  .nav-left-sidebar.sidebar-dark
+    .menu-list
+      nav.navbar.navbar-expand-lg.navbar-light
+        a.d-xl-none.d-lg-none(href='#') &Vcy;&icy;&dcy;&zhcy;&iecy;&tcy;&ycy;
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.flex-column.navbar-color
+            li.nav-divider
+              h4 &Mcy;&iecy;&ncy;&yucy;
+            li.nav-item.btn-active
+              a.nav-link(href='#' aria-expanded='false')
+                i.material-icons.btn widgets
+                | &Vcy;&icy;&dcy;&zhcy;&iecy;&tcy;&ycy;
+            li.nav-item
+              a.nav-link(href='pages/payment_settings.html' aria-expanded='false')
+                i.material-icons.btn settings
+                | &Ncy;&acy;&scy;&tcy;&rcy;&ocy;&jcy;&kcy;&acy; &ocy;&pcy;&lcy;&acy;&tcy;&ycy;
+            li.nav-item
+              a.nav-link(href='pages/payment_history.html' aria-expanded='false')
+                i.fa.fa-history.btn
+                | &Icy;&scy;&tcy;&ocy;&rcy;&icy;&yacy; &ocy;&pcy;&lcy;&acy;&tcy;&ycy;
+  // ==============================================================
+  // end left sidebar
+  // ==============================================================
+  // ==============================================================
+  // wrapper
+  // ==============================================================
+  .dashboard-wrapper
+    .dashboard-ecommerce
+      .container-fluid.dashboard-content
+        // ==============================================================
+        // pageheader
+        // ==============================================================
+        .row
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+            .page-header
+              h2.pageheader-title &Vcy;&icy;&dcy;&zhcy;&iecy;&tcy;&ycy; 
+              p.pageheader-text
+              .page-breadcrumb
+                nav(aria-label='breadcrumb')
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a.breadcrumb-link(href='#') &Mcy;&iecy;&ncy;&yucy;
+                    li.breadcrumb-item.active(aria-current='page') &Vcy;&icy;&dcy;&zhcy;&iecy;&tcy;&ycy;
+        // ==============================================================
+        // end pageheader
+        // ==============================================================
+        .ecommerce-widget
+          .row
+            .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
+              .card
+                .card-body
+                  h3.text-muted.font-weight-bold &Rcy;&ucy;&lcy;&iecy;&tcy;&kcy;&acy;
+    // ==============================================================
+    // footer
+    // ==============================================================
+    .footer.fixed-bottom
+      .container-fluid
+        .row
+          .col-xl-6.col-lg-6.col-md-6.col-sm-12.col-12
+            | Copyright &copy; 2019 XDonat. &Vcy;&scy;&iecy; &pcy;&rcy;&acy;&vcy;&acy; &zcy;&acy;&shchcy;&icy;&shchcy;&iecy;&ncy;&ycy;.
+          .col-xl-6.col-lg-6.col-md-6.col-sm-12.col-12
+            .text-md-right.footer-links.d-none.d-sm-block
+              a(href='javascript: void(0);') &Ocy; &ncy;&acy;&scy;
+              a(href='javascript: void(0);') &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy;
+              a(href='javascript: void(0);') &Kcy;&ocy;&ncy;&tcy;&acy;&kcy;&tcy;&ycy;
+    // ==============================================================
+    // end footer
+    // ==============================================================
+  // ==============================================================
+  // end wrapper
+  // ==============================================================
+// ==============================================================
+// end main wrapper
+// ==============================================================
+// Optional JavaScript
+// jquery 3.3.1
+script(src='assets/vendor/jquery/jquery-3.3.1.min.js')
+// bootstap bundle js
+script(src='assets/vendor/bootstrap/js/bootstrap.bundle.js')
+// slimscroll js
+script(src='assets/vendor/slimscroll/jquery.slimscroll.js')
+// main js
+script(src='assets/libs/js/main-js.js')
+// chart chartist js
+script(src='assets/vendor/charts/chartist-bundle/chartist.min.js')
+// sparkline js
+script(src='assets/vendor/charts/sparkline/jquery.sparkline.js')
+// morris js
+script(src='assets/vendor/charts/morris-bundle/raphael.min.js')
+script(src='assets/vendor/charts/morris-bundle/morris.js')
+// chart c3 js
+script(src='assets/vendor/charts/c3charts/c3.min.js')
+script(src='assets/vendor/charts/c3charts/d3-5.4.0.min.js')
+script(src='assets/vendor/charts/c3charts/C3chartjs.js')
+script(src='assets/libs/js/dashboard-ecommerce.js')
