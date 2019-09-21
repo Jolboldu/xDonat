@@ -76,8 +76,8 @@ typings/
 .nuxt
 
 # gatsby files
-.cache/
-public
+#.cache/
+#public
 
 # vuepress build output
 .vuepress/dist
