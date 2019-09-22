@@ -6,5 +6,5 @@ var yandex = mongoose.model('yandex', schema.Yandex)
 
 module.exports = {
 	User : user,
-	YandexWalltet : yandex,
+	YandexWallet : yandex,
 }
