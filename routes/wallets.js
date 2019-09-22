@@ -16,4 +16,8 @@ router.get('/yandex', authCheck, (req, res) => {
     })
 });
 
+router.post('/yandex/requests', authCheck, (req, res) => {
+    console.log(req.body)
+});
+
 module.exports = router;

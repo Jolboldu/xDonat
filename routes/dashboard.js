@@ -25,17 +25,20 @@ router.post('/payment_settings', authCheck, (req, res) => {
     var email = req.body.email;
     console.log(yandex_address);
 
-//need to check if already exists wallet yandex    
+//need to check if already exists wallet yandex
+    
     if(yandex_address.length == 15)
     {
         if(validator.validate(email))
         {
+
             var newYandexWallet = models.YandexWallet({
                 userId: req.user.id,
                 addressOfWallet: yandex_address,
                 emailOfYandex: email,
             }).save( (err) => {
                 console.log('got it');
+                res.json('got it');
             })
         }            
     }
