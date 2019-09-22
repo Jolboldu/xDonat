@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var models = require('../models')
 
 const authCheck = (req, res, next) => {
     if(!req.user){
@@ -10,7 +11,7 @@ const authCheck = (req, res, next) => {
 
 router.get('/', authCheck, (req, res) => {
     // res.send(req.user);
-    res.render('dashboard');
+    res.render('error', {data: req.user});
 });
 router.get('/payment_settings', authCheck, (req, res) => {
     // res.send(req.user);
