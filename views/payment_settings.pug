@@ -67,7 +67,7 @@ head
         form(method='POST' action='/dashboard/payment_settings')
           div.form-group
             label(for='address') Адрес кошелька:
-            input#name.form-control(type='text', placeholder='4100...' name='address')
+            input#name.form-control(type='text', placeholder='4100...' name='address' maxlength="15")
           div.form-group
             label(for='email') Email:
             input#email.form-control(type='email', placeholder='papech@email.com' name='email')
