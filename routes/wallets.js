@@ -16,6 +16,11 @@ router.get('/yandex', authCheck, (req, res) => {
     })
 });
 
+router.get('/yandex/pay', (req, res) => {
+    res.render('form');
+});
+
+
 router.post('/yandex/requests', authCheck, (req, res) => {
     console.log(req.body)
 });
