@@ -11,15 +11,15 @@ const authCheck = (req, res, next) => {
 
 router.get('/', authCheck, (req, res) => {
     // res.send(req.user);
-    res.render('error', {data: req.user});
+    res.render('dashboard', {data: req.user});
 });
 router.get('/payment_settings', authCheck, (req, res) => {
     // res.send(req.user);
-    res.render('payment_settings');
+    res.render('payment_settings', {data: req.user});
 });
 router.get('/payment_history', authCheck, (req, res) => {
     // res.send(req.user);
-    res.render('payment_history');
+    res.render('payment_history', {data: req.user});
 });
 
 module.exports = router;

@@ -49,14 +49,15 @@
               li
                 .list-footer
                   a(href='#') View all notifications
-          li.nav-item.dropdown.nav-user
+          li.nav-item.dropdown.nav-
+            //- - var imageurl = #{data.profileImageUrl}
             a#navbarDropdownMenuLink2.nav-link.nav-user-img(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-              img.user-avatar-md.rounded-circle(src='assets/images/avatar-1.jpg' alt='')
+              img.user-avatar-md.rounded-circle(src=data.profileImageUrl alt='')
             .dropdown-menu.dropdown-menu-right.nav-user-dropdown(aria-labelledby='navbarDropdownMenuLink2')
               .nav-user-info
-                h5.mb-0.text-white.nav-user-name Elon Musk
+                h5.mb-0.text-white.nav-user-name #{data.username}
                 span.status
-                span.ml-2 Busy
+                span.ml-2 Online
               a.dropdown-item(href='#')
                 i.fas.fa-user.mr-2
                 | Account

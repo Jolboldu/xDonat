@@ -15,7 +15,7 @@ head
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet')
   link(rel='stylesheet' href='assets/libs/css/style.css')
-  title XDonat - Admin panel
+  title XDonat - Панель управления
 // ==============================================================
 // main wrapper
 // ==============================================================
@@ -58,6 +58,21 @@ head
         // end pageheader
         // ==============================================================
         .ecommerce-widget
+
+    .container
+      .col-md-6.col-md-offset-3
+        h6.display-4.m-b-2 Яндекс Деньги
+
+        // Настройка оплаты
+        form(method='POST' action='/dashboard/payment_settings')
+          div.form-group
+            label(for='address') Адрес кошелька:
+            input#name.form-control(type='text', placeholder='4100...' name='address')
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='papech@email.com' name='email')
+          button.btn.btn-primary(type='submit') Отправить
+
     // ==============================================================
     // footer
     // ==============================================================
