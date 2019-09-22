@@ -21,7 +21,7 @@ router.get('/yandex/pay', (req, res) => {
 });
 
 
-router.post('/yandex/requests', authCheck, (req, res) => {
+router.post('/yandex/requests', (req, res) => {
     console.log(req.body)
 });
 
