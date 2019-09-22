@@ -20,7 +20,7 @@ router.get('/profile', (req, res) => {
 router.get('/twitch', passport.authenticate('twitch', { scope: ['user_read'] },));
 
 router.get('/twitch/redirect', passport.authenticate('twitch'), (req,res)=>{
-	res.redirect('/profile')
+	res.redirect('/dashboard')
 });
 
 module.exports = router;

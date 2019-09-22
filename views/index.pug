@@ -1,7 +1,197 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  iframe(src='https://money.yandex.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=&default-sum=&button-text=11&hint=&successURL=&quickpay=shop&account=410019385305336' width='423' height='215' frameborder='0' allowtransparency='true' scrolling='no')
-
+head
+  // Mobile Specific Meta
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Favicon
+  link(rel='shortcut icon' href='img/fav.png')
+  // Author Meta
+  meta(name='author' content='codepixer')
+  // Meta Description
+  meta(name='description' content='')
+  // Meta Keyword
+  meta(name='keywords' content='')
+  // meta character set
+  meta(charset='UTF-8')
+  // Site Title
+  title XDonate
+  //
+    CSS
+    =============================================
+  link(rel='stylesheet' href='dir_landing/css/linearicons.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  link(rel='stylesheet' href='dir_landing/css/magnific-popup.css')
+  link(rel='stylesheet' href='dir_landing/css/nice-select.css')
+  link(rel='stylesheet' href='dir_landing/css/hexagons.min.css')
+  link(rel='stylesheet' href='dir_landing/css/owl.carousel.css')
+  link(rel='stylesheet' href='dir_landing/css/main.css')
+// start header Area
+header#header
+  .container.main-menu
+    .row.align-items-center.justify-content-between.d-flex
+      #logo
+        a(href='/')
+          img(src='dir_landing/img/logo.png' alt='' title='')
+      nav#nav-menu-container
+        ul.nav-menu
+          li.menu-active
+            a(href='/') Домой
+          li
+            a(href='/about') О нас
+          // <li><a href="pricing.html">Pricing</a></li>
+          //
+            <li class="menu-has-children"><a href="">Pages</a>
+            <ul>
+            <li><a href="elements.html">Elements</a></li>
+            </ul>
+            </li>
+          //
+            <li class="menu-has-children"><a href="">Blog</a>
+            <ul>
+            <li><a href="blog-home.html">Blog Home</a></li>
+            <li><a href="blog-single.html">Blog Single</a></li>
+            </ul>
+            </li>
+          li
+            a(href='/auth/twitch') Войти/Регистрация
+// end header Area
+// start banner Area
+section.home-banner-area
+  .container
+    .row.fullscreen.d-flex.align-items-center.justify-content-between
+      .home-banner-content.col-lg-6.col-md-6
+        h1
+          | &Ncy;&ocy;&vcy;&ycy;&jcy; &ucy;&rcy;&ocy;&vcy;&iecy;&ncy;&softcy; &pcy;&ocy;&gcy;&rcy;&ucy;&zhcy;&iecy;&ncy;&icy;&yacy; 
+          br
+          |  &Dcy;&lcy;&yacy; &zcy;&rcy;&icy;&tcy;&iecy;&lcy;&yacy;
+        p &Pcy;&ocy;&lcy;&ucy;&chcy;&icy; &scy;&acy;&mcy;&ycy;&iecy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &icy;&ncy;&scy;&tcy;&rcy;&ucy;&mcy;&iecy;&ncy;&tcy;&ycy; &dcy;&lcy;&yacy; &mcy;&ocy;&ncy;&iecy;&tcy;&icy;&zcy;&acy;&tscy;&icy;&icy; &scy;&vcy;&ocy;&icy;&khcy; &tcy;&rcy;&acy;&ncy;&scy;&lcy;&yacy;&tscy;&icy;&jcy;.
+        .download-button.d-flex.flex-row.justify-content-start
+          //
+            <div class="buttons flex-row d-flex">
+            <i class="fa fa-twitch" aria-hidden="true"></i>
+            <div class="desc">
+            <a href="/auth/twitch">
+            <p>
+            <span>Available</span> <br>
+            on App Store
+            </p>
+            </a>
+            </div>
+            </div>
+          .buttons.dark.flex-row.d-flex
+            i.fa.fa-twitch(aria-hidden='true')
+            .desc
+              a(href='/auth/twitch')
+                p
+                  span &Vcy;&ocy;&jcy;&tcy;&icy;
+                  br
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&chcy;&iecy;&rcy;&iecy;&zcy; Twitch.tv
+      .banner-img.col-lg-4.col-md-6
+        img.img-fluid(src='dir_landing/img/banner-img.png' alt='')
+// End banner Area
+// Start about-video Area
+section.about-video-area.section-gap
+  .container
+    .row.align-items-center.justify-content-center
+      .col-lg-12.about-video-right.justify-content-center.align-items-center.d-flex.relative
+        .overlay.overlay-bg
+        a.play-btn(href='https://www.youtube.com/watch?v=ARA0AxrnHdM')
+          img.img-fluid.mx-auto(src='dir_landing/img/play-btn.png' alt='')
+// End about-video Area
+// Start Pricing Area
+hr
+section.pricing-area
+  .container
+    .row.d-flex.justify-content-center
+      .col-lg-6
+        .section-title.text-center
+          h2 &Vcy;&ycy;&bcy;&iecy;&rcy;&icy; &lcy;&ucy;&chcy;&shcy;&icy;&jcy; &pcy;&lcy;&acy;&ncy;
+          p
+            | &Mcy;&ycy; &ncy;&iecy; &bcy;&iecy;&rcy;&iecy;&mcy; &ncy;&icy;&kcy;&acy;&kcy;&icy;&khcy; &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy; &zcy;&acy; &ncy;&acy;&shcy;&icy; &ucy;&scy;&lcy;&ucy;&gcy;&icy; &icy; &pcy;&rcy;&iecy;&dcy;&ocy;&scy;&tcy;&acy;&vcy;&lcy;&yacy;&iecy;&mcy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &rcy;&iecy;&shcy;&iecy;&ncy;&icy;&yacy;, &kcy;&ocy;&tcy;&ocy;&rcy;&ycy;&iecy; &dcy;&acy;&dcy;&ucy;&tcy; &vcy;&acy;&mcy; &ncy;&iecy;&vcy;&iecy;&rcy;&ocy;&yacy;&tcy;&ncy;&ycy;&jcy; &bcy;&ucy;&scy;&tcy; &kcy; &icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&ocy;&scy;&tcy;&icy;, &vcy;&ocy;&vcy;&lcy;&iecy;&chcy;&iecy;&ncy;&ncy;&ocy;&scy;&tcy;&icy; &icy; &pcy;&rcy;&icy;&bcy;&ycy;&lcy;&icy;.
+    .row
+      .col-lg-4.col-md-6
+        .single-price
+          .top-sec.d-flex.justify-content-between
+            .top-left
+              h4 &Ncy;&acy;&chcy;&icy;&ncy;&acy;&yucy;&shchcy;&icy;&jcy;
+              p 7 &dcy;&ncy;&iecy;&jcy;
+            .top-right
+              h1 0&#x20BD;
+          .end-sec
+            ul
+              li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
+              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
+            button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
+      .col-lg-4.col-md-6
+        .single-price
+          .top-sec.d-flex.justify-content-between
+            .top-left
+              h4 &Pcy;&rcy;&ocy;&fcy;&iecy;&scy;&scy;&icy;&ocy;&ncy;&acy;&lcy;
+              p 1 &mcy;&iecy;&scy;&yacy;&tscy;
+            .top-right
+              h1 &#x20BD;250
+          .end-sec
+            ul
+              li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
+              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
+            button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
+      .col-lg-4.col-md-6
+        .single-price
+          .top-sec.d-flex.justify-content-between
+            .top-left
+              h4 &Pcy;&rcy;&ocy;&fcy;&iecy;&scy;&scy;&icy;&ocy;&ncy;&acy;&lcy;
+              p 2 &mcy;&iecy;&scy;&yacy;&tscy;&acy;
+            .top-right
+              h1 &#x20BD;499
+          .end-sec
+            ul
+              li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
+              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
+            button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
+// End Pricing Area
+// Start Footer Area
+footer.footer-area.section-gap
+  .container
+    .row
+      .col-lg-2.col-md-6.single-footer-widget
+        h4 &nbsp;&Ocy; &ncy;&acy;&scy;
+        ul
+          li
+            a(href='#') &Pcy;&ocy;&mcy;&ocy;&shchcy;&softcy;
+          li
+            a(href='#') &Kcy;&ocy;&ncy;&tcy;&acy;&kcy;&tcy;&ycy;
+          li
+            a(href='#') &Kcy;&acy;&lcy;&softcy;&kcy;&ucy;&lcy;&yacy;&tcy;&ocy;&rcy;
+      .col-lg-4.col-md-6.single-footer-widget
+        h4 &Rcy;&acy;&scy;&scy;&ycy;&lcy;&kcy;&acy;
+        p &Ocy;&tcy;&pcy;&rcy;&acy;&vcy;&lcy;&yacy;&iecy;&mcy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &pcy;&rcy;&ocy;&mcy;&ocy; &acy;&kcy;&tscy;&icy;&icy;!
+        #mc_embed_signup.form-wrap
+          form.form-inline(target='_blank' action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01' method='get')
+            input.form-control(name='EMAIL' placeholder='Your Email Address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" required='' type='email')
+            button.click-btn.btn.btn-default
+              span.lnr.lnr-arrow-right
+            div(style='position: absolute; left: -5000px;')
+              input(name='b_36c4fd991d266f23781ded980_aefe40901a' tabindex='-1' value='' type='text')
+            .info
+    .footer-bottom.row.align-items-center
+      span.da-ui--footer__copy &copy; Xdonat.inc All rights reserved.
+// End Footer Area
+script(src='https://code.jquery.com/jquery-2.2.4.min.js' integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+script(type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')
+script(src='dir_landing/js/easing.min.js')
+script(src='dir_landing/js/hoverIntent.js')
+script(src='dir_landing/js/superfish.min.js')
+script(src='dir_landing/js/jquery.ajaxchimp.min.js')
+script(src='dir_landing/js/jquery.magnific-popup.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js')
+script(src='dir_landing/js/owl-carousel-thumb.min.js')
+script(src='dir_landing/js/hexagons.min.js')
+script(src='dir_landing/js/jquery.nice-select.min.js')
+script(src='dir_landing/js/waypoints.min.js')
+script(src='dir_landing/js/mail-script.js')
+script(src='dir_landing/js/main.js')

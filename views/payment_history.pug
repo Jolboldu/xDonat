@@ -1,0 +1,96 @@
+doctype html
+html(lang='en')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='assets/vendor/bootstrap/css/bootstrap.min.css')
+    link(href='assets/vendor/fonts/circular-std/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+    link(rel='stylesheet', href='assets/vendor/charts/chartist-bundle/chartist.css')
+    link(rel='stylesheet', href='assets/vendor/charts/morris-bundle/morris.css')
+    link(rel='stylesheet', href='assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
+    link(rel='stylesheet', href='assets/vendor/charts/c3charts/c3.css')
+    link(rel='stylesheet', href='assets/vendor/fonts/flag-icon-css/flag-icon.min.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='assets/libs/css/style.css')
+    title XDonat - Admin panel
+  body
+    // ==============================================================
+    // main wrapper
+    // ==============================================================
+    .dashboard-main-wrapper
+      // ==============================================================
+      // navbar
+      // ==============================================================
+      include dashboard/navbar
+      // ==============================================================
+      // end navbar
+      // ==============================================================
+      // ==============================================================
+      // left sidebar
+      // ==============================================================
+      include dashboard/left_sidebar
+      // ==============================================================
+      // end left sidebar
+      // ==============================================================
+      // ==============================================================
+      // wrapper
+      // ==============================================================
+      .dashboard-wrapper
+        .dashboard-ecommerce
+          .container-fluid.dashboard-content
+            // ==============================================================
+            // pageheader
+            // ==============================================================
+            .row
+              .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                .page-header
+                  h2.pageheader-title Виджеты 
+                  p.pageheader-text
+                  .page-breadcrumb
+                    nav(aria-label='breadcrumb')
+                      ol.breadcrumb
+                        li.breadcrumb-item
+                          a.breadcrumb-link(href='#') Меню
+                        li.breadcrumb-item.active(aria-current='page') История оплат
+            // ==============================================================
+            // end pageheader
+            // ==============================================================
+            .ecommerce-widget
+        // ==============================================================
+        // footer
+        // ==============================================================
+        include dashboard/footer
+        // ==============================================================
+        // end footer
+        // ==============================================================
+        // ==============================================================
+        // end wrapper
+        // ==============================================================
+        // ==============================================================
+        // end main wrapper
+        // ==============================================================
+        // Optional JavaScript
+        // jquery 3.3.1
+        script(src='assets/vendor/jquery/jquery-3.3.1.min.js')
+        // bootstap bundle js
+        script(src='assets/vendor/bootstrap/js/bootstrap.bundle.js')
+        // slimscroll js
+        script(src='assets/vendor/slimscroll/jquery.slimscroll.js')
+        // main js
+        script(src='assets/libs/js/main-js.js')
+        // chart chartist js
+        script(src='assets/vendor/charts/chartist-bundle/chartist.min.js')
+        // sparkline js
+        script(src='assets/vendor/charts/sparkline/jquery.sparkline.js')
+        // morris js
+        script(src='assets/vendor/charts/morris-bundle/raphael.min.js')
+        script(src='assets/vendor/charts/morris-bundle/morris.js')
+        // chart c3 js
+        script(src='assets/vendor/charts/c3charts/c3.min.js')
+        script(src='assets/vendor/charts/c3charts/d3-5.4.0.min.js')
+        script(src='assets/vendor/charts/c3charts/C3chartjs.js')
+        script(src='assets/libs/js/dashboard-ecommerce.js')
