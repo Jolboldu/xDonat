@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth-routes');
 var dashboardRouter = require('./routes/dashboard');
 var userRouter = require('./routes/users');
+var WalletRouter = require('./routes/wallets')
 // var profileRouter = require('./routes/profile');
 
 var keys = require('./constants');
@@ -47,6 +48,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/users', userRouter);
+app.use('/wallets', WalletRouter);
 // app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler

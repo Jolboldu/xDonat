@@ -16,6 +16,22 @@ var userSchema = new Schema({
 	},
 })
 
+var yandexSchema = new Schema({
+	userId: {
+		type : String,
+		required : true
+	},
+	addressOfWallet : {
+		type : String,
+		required : true
+	},
+	emailOfYandex : {
+		type : String,
+		required : true
+	}
+})
+
 module.exports = {
 	User: userSchema,
+	Yandex: yandexSchema,
 }
