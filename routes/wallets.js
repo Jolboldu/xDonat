@@ -4,7 +4,7 @@ var validator = require("email-validator");
 
 const authCheck = (req, res, next) => {
     if(!req.user){
-        res.redirect('/auth/login');
+        res.redirect('/auth/twitch');
     } else {
         next();
     }
@@ -16,11 +16,12 @@ router.get('/yandex', authCheck, (req, res) => {
     })
 });
 
-router.get('/yandex/pay', (req, res) => {
-    res.render('form');
-});
+// these kinda 'get' has to be in the Streamer's page, should be deleted next commit
+// router.get('/yandex/pay', (req, res) => {
+//     res.render('form');
+// });
 
-
+// handling HTTP requests from Yandex after success payment to streamer
 router.post('/yandex/requests', (req, res) => {
     console.log(req.body)
 });
