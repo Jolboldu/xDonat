@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-// auth login
-router.get('/login', (req, res) => {
-    res.render('login', { user: req.user });
-});
+// not used anymore, because goes directly to '/twitch' route
+// router.get('/login', (req, res) => {
+//     res.render('login', { user: req.user });
+// });
 
 // auth logout
 router.get('/logout', function (req, res) {

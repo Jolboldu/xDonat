@@ -3,8 +3,8 @@ var models = require('../models')
 var validator = require("email-validator");
 
 const authCheck = (req, res, next) => {
-    if(!req.user){
-        res.redirect('/auth/login');
+    if (!req.user) {
+        res.redirect('/auth/twitch');
     } else {
         next();
     }
