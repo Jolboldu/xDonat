@@ -24,12 +24,12 @@ router.get('/payment_settings', authCheck, (req, res) => {
         console.log(req.user.id);
         if (data) {
             res.render('payment_settings', { data: req.user, yandexData: data});
-            // res.send('Подключены')
+            // res.send('Оплата Подключена')
         }
         else 
         {
             res.render('payment_settings', { data: req.user });
-            // res.send('Не подключены')
+            // res.send('Оплата не подключена')
         }
     });
 

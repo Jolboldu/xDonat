@@ -1,8 +1,60 @@
-form(method='POST' action='/wallets/yandex/requests')
-          div.form-group
-            label(for='address') Адрес кошелька:
-            input#name.form-control(type='text', placeholder='4100...' name='address' maxlength="15")
-          div.form-group
-            label(for='email') Email:
-            input#email.form-control(type='email', placeholder='papech@email.com' name='email')
-          button.btn.btn-primary(type='submit') Отправить
+doctype html
+html(lang='en')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Упс!
+    // Bootstrap CSS
+    link(rel='stylesheet', href='/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/dashboard/assets/vendor/fonts/circular-std/style.css')
+    link(rel='stylesheet', href='/dashboard/assets/libs/css/style.css')
+    link(rel='stylesheet', href='/dashboard/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet')
+  body
+    // ==============================================================
+    // main wrapper
+    // ==============================================================
+    .dashboard-main-wrapper.p-0
+          // ==============================================================
+          // wrapper
+          // ==============================================================
+          .text-center
+            .container
+              .row
+                .offset-xl-2.col-xl-8.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12
+                  .error-section
+                    //- img.img-fluid(src='/dashboard/assets/images/error-img.png', alt='')
+                    .error-section-content
+                      h1.display-3 Ah Shit, Here We Go Again
+                      p
+                        |Похоже мы не можем найти страницу, которую вы ищите
+                      a.btn.btn-secondary.btn-lg(href='/') Го Домой
+            //- // ==============================================================
+            //- // footer
+            //- // ==============================================================
+            //- .bg-white.p-3
+            //-   .container-fluid
+            //-     .row
+            //-       .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.text-dark.text-center
+            //-         | Copyright © 2018 Concept. All rights reserved.
+            //- // ==============================================================
+            //- // end footer
+            //- // ==============================================================
+            // ==============================================================
+            // end wrapper
+            // ==============================================================
+            // ==============================================================
+            // end footer
+            // ==============================================================
+            // ==============================================================
+            // end main wrapper
+            // ==============================================================
+            // ==============================================================
+            // end main wrapper
+            // ==============================================================
+            // Optional JavaScript
+            script(src='/dashboard/assets/vendor/jquery/jquery-3.3.1.min.js')
+            script(src='/dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.js')
+            script(src='/dashboard/assets/vendor/slimscroll/jquery.slimscroll.js')
+            script(src='/dashboard/assets/libs/js/main-js.js')

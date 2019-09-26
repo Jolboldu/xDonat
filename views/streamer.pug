@@ -1,0 +1,92 @@
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='description', content='Поддержи любимого стримера')
+    meta(name='keywords', content='Стримеры, twitch.tv, твич, xdonat, донаты, xdonat.com, рулетка для стримеров')
+    meta(name='author', content='xdonat.com')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //
+      CSS
+      =============================================
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap', rel='stylesheet')
+    style.
+      .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      }
+      body {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: #71748d;
+      background-color: #efeff6;
+      -webkit-font-smoothing: antialiased;
+      }
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+      .container
+        a.navbar-brand(href='/') #{user_data.username}
+        img.d-inline-block.align-top.rounded(src=src=user_data.profileImageUrl, width='50', height='50', alt='')
+        //
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        //
+          <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+          </li>
+          </ul>
+          <span class="navbar-text">
+          Navbar text with an inline element
+          </span>
+          </div>
+    hr
+    // Form
+    .container
+      form
+        .form-group
+          label(for='exampleInputEmail1')  Твой псевдоним
+          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Вводить сюда')
+          //
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+            else.</small>
+        select.form-control(name='donate-type')
+          option(value='text_donate') Обычный текст
+          option(value='slot_donate') Cлоты
+          option(value='wheel_donate') Колесо Фортуны
+        .form-group
+          label(for='exampleInputPassword1') Сумма
+          input#exampleInputPassword1.form-control(type='number', placeholder='150 рублей')
+        button.btn.btn-primary(type='submit') Submit
+      hr
+      //
+        <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://player.twitch.tv/?channel=dreadztv" frameborder="0"
+        allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a
+        href="https://www.twitch.tv/dreadztv?tt_content=text_link&tt_medium=live_embed"
+        style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch
+        live video from DreadzTV on www.twitch.tv</a>
+        </div>
+    footer.footer.mt-auto.py-3
+      .container
+        span.da-ui--footer__copy © Xdonat.inc All rights reserved.
+    // Javascript
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

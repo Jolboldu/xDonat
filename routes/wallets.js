@@ -11,9 +11,10 @@ const authCheck = (req, res, next) => {
 };
 
 router.get('/yandex', authCheck, (req, res) => {
-    models.YandexWallet.find({}, (err, data) => {
-        res.json(data);
-    })
+    // models.YandexWallet.find({}, (err, data) => {
+    //     res.json(data);
+    // })
+    console.log('Не палим наши схемы');
 });
 
 // these kinda 'get' has to be in the Streamer's page, should be deleted next commit

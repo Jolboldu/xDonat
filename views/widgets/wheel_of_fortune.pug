@@ -4,17 +4,17 @@ head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   // Bootstrap CSS
-  link(rel='stylesheet' href='assets/vendor/bootstrap/css/bootstrap.min.css')
-  link(href='assets/vendor/fonts/circular-std/style.css' rel='stylesheet')
-  link(rel='stylesheet' href='assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
-  //- link(rel='stylesheet' href='assets/vendor/charts/chartist-bundle/chartist.css')
-  //- link(rel='stylesheet' href='assets/vendor/charts/morris-bundle/morris.css')
-  link(rel='stylesheet' href='assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
-  link(rel='stylesheet' href='assets/vendor/charts/c3charts/c3.css')
-  link(rel='stylesheet' href='assets/vendor/fonts/flag-icon-css/flag-icon.min.css')
+  link(rel='stylesheet' href='/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')
+  link(href='/dashboard/assets/vendor/fonts/circular-std/style.css' rel='stylesheet')
+  link(rel='stylesheet' href='/dashboard/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+  //- link(rel='stylesheet' href='/dashboard/assets/vendor/charts/chartist-bundle/chartist.css')
+  //- link(rel='stylesheet' href='/dashboard/assets/vendor/charts/morris-bundle/morris.css')
+  link(rel='stylesheet' href='/dashboard/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
+  link(rel='stylesheet' href='/dashboard/assets/vendor/charts/c3charts/c3.css')
+  link(rel='stylesheet' href='/dashboard/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet')
-  link(rel='stylesheet' href='assets/libs/css/style.css')
+  link(rel='stylesheet' href='/dashboard/assets/libs/css/style.css')
   title XDonat - Панель управления
 // ==============================================================
 // main wrapper
@@ -23,14 +23,14 @@ head
   // ==============================================================
   // navbar
   // ==============================================================
-  include dashboard/navbar
+  include /dashboard/navbar
   // ==============================================================
   // end navbar
   // ==============================================================
   // ==============================================================
   // left sidebar
   // ==============================================================
-  include dashboard/left_sidebar
+  include /dashboard/left_sidebar
   // ==============================================================
   // end left sidebar
   // ==============================================================
@@ -46,33 +46,24 @@ head
         .row
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
             .page-header
-              h2.pageheader-title Виджеты
+              h2.pageheader-title Колесо Фортуны
               p.pageheader-text
               .page-breadcrumb
                 nav(aria-label='breadcrumb')
                   ol.breadcrumb
                     li.breadcrumb-item
-                      a.breadcrumb-link(href='#') Меню
-                    li.breadcrumb-item.active(aria-current='page') Виджеты
+                      a.breadcrumb-link(href='/dashboard') Меню
+                    li.breadcrumb-item.active(aria-current='page') Колесо Фортуны
         // ==============================================================
         // end pageheader
         // ==============================================================
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-              a.breadcrumb-link.active(href='/games/slot')
-                .card
-                  .card-body
-                    h3.text-muted.font-weight-bold Рулетка с вопросами
-            .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-              a.breadcrumb-link.active(href='/games/wheel_of_fortune')
-                .card
-                  .card-body
-                    h3.text-muted.font-weight-bold Колесо Фортуны
     // ==============================================================
     // footer
     // ==============================================================
-    include dashboard/footer
+    include /dashboard/footer
     // ==============================================================
     // end footer
     // ==============================================================
@@ -84,22 +75,22 @@ head
 // ==============================================================
 // Optional JavaScript
 // jquery 3.3.1
-script(src='assets/vendor/jquery/jquery-3.3.1.min.js')
+script(src='/dashboard/assets/vendor/jquery/jquery-3.3.1.min.js')
 // bootstap bundle js
-script(src='assets/vendor/bootstrap/js/bootstrap.bundle.js')
+script(src='/dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.js')
 // slimscroll js
-script(src='assets/vendor/slimscroll/jquery.slimscroll.js')
+script(src='/dashboard/assets/vendor/slimscroll/jquery.slimscroll.js')
 // main js
-script(src='assets/libs/js/main-js.js')
+script(src='/dashboard/assets/libs/js/main-js.js')
 // chart chartist js
-//- script(src='assets/vendor/charts/chartist-bundle/chartist.min.js')
+//- script(src='/dashboard/assets/vendor/charts/chartist-bundle/chartist.min.js')
 //- // sparkline js
-script(src='assets/vendor/charts/sparkline/jquery.sparkline.js')
+script(src='/dashboard/assets/vendor/charts/sparkline/jquery.sparkline.js')
 // morris js
-script(src='assets/vendor/charts/morris-bundle/raphael.min.js')
-//- script(src='assets/vendor/charts/morris-bundle/morris.js')
+script(src='/dashboard/assets/vendor/charts/morris-bundle/raphael.min.js')
+//- script(src='/dashboard/assets/vendor/charts/morris-bundle/morris.js')
 //- // chart c3 js
-script(src='assets/vendor/charts/c3charts/c3.min.js')
-script(src='assets/vendor/charts/c3charts/d3-5.4.0.min.js')
-script(src='assets/vendor/charts/c3charts/C3chartjs.js')
-//- script(src='assets/libs/js/dashboard-ecommerce.js')
+script(src='/dashboard/assets/vendor/charts/c3charts/c3.min.js')
+script(src='/dashboard/assets/vendor/charts/c3charts/d3-5.4.0.min.js')
+script(src='/dashboard/assets/vendor/charts/c3charts/C3chartjs.js')
+//- script(src='assets/libs/js//dashboard-ecommerce.js')
