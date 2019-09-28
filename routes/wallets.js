@@ -41,29 +41,43 @@ router.post('/yandex/pay', (req, res) => {
 });
 
 // handling HTTP requests from Yandex after success payment to streamer
-router.post('/yandex/requests', (req, res) => {
-    console.log(req.body)
+router.post('/yandex/requests', (req, res) => {    
+    console.log(req.body);
 
-    // парсим поле label и получаем адрес стримера
-
-    // если пришли деньги
     paymentAccepted = true;
-    if (paymentAccepted) {
-        models.User.findOne({ username: req.params.username }, (err, user_data) => {
-            if (err) throw err;
-            console.log(user_data);
-            
-            // if (user_data) {
-            //     res.render('streamer', { user_data: user_data});
-            // }
-            // else
-            // {
-            //     // Have to raise ERROR 404, for now just rendering with messages
-            //     res.render('error');
-            // }
-        });
-
+    
+    if(paymentAccepted)
+    {
+        var newPaymentYandex = models.PaymentYandex({   //save yandex payment
+            notification_type : req.body.notification_type,
+            amount : req.body.amount,
+            codepro : req.body.codepro,
+            withdraw_amount : req.body.withdraw_amount,
+            unaccepted : req.body.unaccepted,
+            datetime : req.body.datetime,
+            sender : req.body.sender,
+            operation_label: req.body.operation_label,
+            operation_id: req.body.operation_id,
+            currency : req.body.currency,
+            donateId : req.body.label
+        }).save((err, data) => {
+            var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
+                typeOfPayment : "yandex", //for now yandex is ok
+                paymentId : data.id,
+            }).save((err)=> {
+                res.redirect(307, '/socket') //http code 307 
+            })
+        })
     }
+});
+
+router.post('/socket', (req, res) => {
+    models.Donate.findOne({id: req.body.label}, (err, data) => {
+        models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
+            res.render()//render whatever you want user id is dock.userID
+        })
+    })
+    
 });
 
 module.exports = router;

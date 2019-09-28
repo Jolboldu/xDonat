@@ -11,4 +11,6 @@ module.exports = {
 	User : user,
 	YandexWallet : yandex,
 	Donate : donate,
+	Payment: payment,
+	PaymentYandex: paymentYandex,
 }
