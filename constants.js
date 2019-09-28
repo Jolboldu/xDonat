@@ -14,5 +14,4 @@ module.exports = {
 // 	'SESSION_SECRET'   : 'sosilalka',
 // 	'CALLBACK_URL'     : 'http://localhost:3000/auth/twitch/redirect',
 // 	// 'CALLBACK_URL'     : 'http://165.22.71.126/auth/twitch/redirect',
-
 // }
