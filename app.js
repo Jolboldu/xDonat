@@ -6,6 +6,7 @@ var logger = require('morgan');//need it?
 var passport = require('passport');
 var mongoose = require('mongoose')
 var cookieSession = require('cookie-session')
+var cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth-routes');
@@ -20,6 +21,8 @@ var keys = require('./constants');
 var passportSetup = require('./config/passport-setup')
 
 var app = express();
+
+app.use(cors())
 
 mongoose.connect('mongodb://xdevelopers:SpC4GeSNIx8yyIBr@165.22.71.126:27017/xdonat',{ useNewUrlParser: true }, ()=>{
   console.log('connected to mongodb');
