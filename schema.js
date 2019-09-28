@@ -31,7 +31,92 @@ var yandexSchema = new Schema({
 	}
 })
 
+var donateSchema = new Schema({
+	text: {
+		type : String,
+		required : false,
+	},
+	donater : {
+		type : String,
+		required : true
+	},
+	reciever : {
+		type : Number,
+		required : true
+	},
+	datetime : {
+		type : Date,
+		default: Date.now,
+		required : true
+	},
+	game : {
+		type : String,
+		required : true
+	}
+})
+
+var paymentSchema = new Schema({
+	typeOfPayment: {
+		type : String,
+		required : true,
+	},
+	paymentId : {
+		type : String,
+		required : true
+	}
+})
+
+var paymentYandexSchema = new Schema({
+	notification_type: {
+		type : String,
+		required : true,
+	},
+	amount: {
+		type : Number,
+		required : true,
+	},
+	codepro: {
+		type : Boolean,
+		required : true,
+	},
+	withdraw_amount : {
+		type : Number,
+		required : true
+	},
+	unaccepted: {
+		type : Boolean,
+		required : true,
+	},
+	datetime : {
+		type : Date,
+		required : true
+	},
+	sender : {
+		type : Number,
+		required : true
+	},
+	operation_label: {
+		type: String,
+		required: true,
+	},
+	operation_id : {
+		type : String,
+		required : true
+	},
+	currency : {
+		type : Number,
+		required : true
+	},
+	donateId : {
+		type: String,
+		required : true
+	}
+})
+
 module.exports = {
 	User: userSchema,
 	Yandex: yandexSchema,
+	Donate: donateSchema,
+	Payment: paymentSchema,
+	PaymentYandex: paymentYandexSchema,
 }

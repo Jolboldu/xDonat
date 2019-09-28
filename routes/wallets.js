@@ -10,22 +10,34 @@ const authCheck = (req, res, next) => {
     }
 };
 
-router.get('/yandex', authCheck, (req, res) => {
-    models.YandexWallet.drop(function(err, delOK) {
-        if (err) throw err;
-        if (delOK) console.log("Collection deleted");
-        // db.close();
-      });
-    res.send("nice");
-    // models.YandexWallet.find({}, (err, data) => {
-    //     res.json(data);
-    // })
-    console.log('Не палим наши схемы');
-});
+// router.get('/yandex', authCheck, (req, res) => {
+//     models.YandexWallet.drop(function(err, delOK) {
+//         if (err) throw err;
+//         if (delOK) console.log("Collection deleted");
+//         // db.close();
+//       });
+//     res.send("nice");
+//     // models.YandexWallet.find({}, (err, data) => {
+//     //     res.json(data);
+//     // })
+//     console.log('Не палим наши схемы');
+// });
+
 
 // these kinda 'get' has to be in the Streamer's page, should be deleted next commit
-router.get('/yandex/pay', (req, res) => {
-    res.render('form');
+// router.get('/yandex/pay', (req, res) => {
+    // res.render('form');
+// });
+
+router.post('/yandex/pay', (req, res) => {    
+    var newDonate = new models.Donate({
+        text: req.body.text,
+        donater: req.body.donater,
+        game: req.body.game,
+        reciever: req.body.reciever,
+    }).save((err, data) => {
+        res.render('form', {id: data.id});
+    })
 });
 
 // handling HTTP requests from Yandex after success payment to streamer
