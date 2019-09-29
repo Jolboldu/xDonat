@@ -36,7 +36,7 @@ router.post('/yandex/pay', (req, res) => {
         game: req.body.game,
         reciever: req.body.reciever,
     }).save((err, data) => {
-        res.render('form', {id: data.id});
+        res.render('form', {id: data.id, amount: req.body.amount});
     })
 });
 
@@ -74,7 +74,7 @@ router.post('/yandex/requests', (req, res) => {
 router.post('/socket', (req, res) => {
     models.Donate.findOne({id: req.body.label}, (err, data) => {
         models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
-            res.render()//render whatever you want user id is dock.userID
+            res.send("its ok")//render whatever you want user id is dock.userID
         })
     })
     
