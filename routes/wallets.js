@@ -69,14 +69,13 @@ router.post('/yandex/requests', (req, res) => {
             {
                 console.log(err);
             }
-            // var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
-            //     typeOfPayment : "yandex", //for now yandex is ok
-            //     paymentId : data.id,
-            // }).save((err)=> {
-            //     res.redirect(307, '/socket') //http code 307 
-            // })
+            var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
+                typeOfPayment : "yandex", //for now yandex is ok
+                paymentId : data.id,
+            }).save((err)=> {
+                res.redirect(307, '/socket') //http code 307 
+            })
             console.log(data);
-            res.send(data);
         })
     }
 });
@@ -84,6 +83,7 @@ router.post('/yandex/requests', (req, res) => {
 router.post('/socket', (req, res) => {
     models.Donate.findOne({id: req.body.label}, (err, data) => {
         models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
+            console.log(dock);
             res.send("its ok")//render whatever you want user id is dock.userID
         })
     })
