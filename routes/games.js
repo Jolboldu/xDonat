@@ -21,4 +21,14 @@ router.get('/wheel_of_fortune', authCheck, (req, res) => {
     console.log(err);
 });
 
+router.post('/socket', (req, res) => {
+    models.Donate.findOne({id: req.body.label}, (err, data) => {
+        models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
+            console.log(dock);
+            res.send("its ok")//render whatever you want user id is dock.userID
+        })
+    })
+    
+});
+
 module.exports = router;

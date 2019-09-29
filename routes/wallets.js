@@ -74,7 +74,7 @@ router.post('/yandex/requests', (req, res) => {
                 paymentId : data.id,
             }).save((err)=> {
                 console.log("im in niggas");
-                res.redirect(307, 'wallets/socket') //http code 307 
+                res.redirect(307, '/wallets/socket') //http code 307 
             })
             console.log(data);
         })
@@ -88,7 +88,7 @@ router.post('/socket', (req, res) => {
             res.send("its ok")//render whatever you want user id is dock.userID
         })
     })
-    
-});
+   
+
 
 module.exports = router;
