@@ -73,7 +73,7 @@ router.post('/yandex/requests', (req, res) => {
                 typeOfPayment : "yandex", //for now yandex is ok
                 paymentId : data.id,
             }).save((err)=> {
-                res.redirect(307, '/socket') //http code 307 
+                res.redirect(307, 'wallets/socket') //http code 307 
             })
             console.log(data);
         })
