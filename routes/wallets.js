@@ -65,6 +65,10 @@ router.post('/yandex/requests', (req, res) => {
             currency : req.body.currency,
             donateId : req.body.label
         }).save((err, data) => {
+            if(err)
+            {
+                console.log(err);
+            }
             var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
                 typeOfPayment : "yandex", //for now yandex is ok
                 paymentId : data.id,
