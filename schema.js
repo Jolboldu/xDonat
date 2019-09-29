@@ -28,7 +28,11 @@ var yandexSchema = new Schema({
 	emailOfYandex : {
 		type : String,
 		required : true
-	}
+	},
+	secretOfWallet : {
+		type : String,
+		required : true,
+	},
 })
 
 var donateSchema = new Schema({

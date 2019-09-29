@@ -33,39 +33,44 @@ router.get('/payment_settings', authCheck, (req, res) => {
         }
     });
 
-
 });
 
 router.post('/payment_settings', authCheck, (req, res) => {
-    var yandex_address = req.body.address;
-    var email = req.body.email;
-    console.log(yandex_address);
-
     //need to check if already exists wallet yandex
+    models.YandexWallet.find({ userId: req.user.id }, (err, data) => {
+        if (err) throw err;
+        if (data.length) {
+            if (yandex_address.length == 15) {
+                if (validator.validate(email)) {
 
-    if (yandex_address.length == 15) {
-        if (validator.validate(email)) {
-
-            var newYandexWallet = models.YandexWallet({
-                userId: req.user.id,
-                addressOfWallet: yandex_address,
-                emailOfYandex: email,
-            }).save((err) => {
-                if(err)
-                {
-                    res.send(err);
+                    var newYandexWallet = models.YandexWallet({
+                        userId: req.user.id,
+                        addressOfWallet: req.body.address,
+                        emailOfYandex: req.body.email,
+                        secretOfWallet: req.body.secretOfWallet,
+                    }).save((err) => {
+                        if(err)
+                        {
+                            res.send(err);
+                        }
+                        console.log('Added to database');
+                        var success_message = encodeURIComponent('success_save');
+                        res.redirect('/dashboard/payment_settings?valid=' + success_message);
+                    })
                 }
-                console.log('Added to database');
-                var success_message = encodeURIComponent('success_save');
-                res.redirect('/dashboard/payment_settings?valid=' + success_message);
-            })
+                else {
+                    console.log('Incorrect email');
+                    var email_error = encodeURIComponent('email_error');
+                    res.redirect('/dashboard/payment_settings?valid=' + email_error);
+                }
+            } 
         }
-        else {
-            console.log('Incorrect email');
-            var email_error = encodeURIComponent('email_error');
-            res.redirect('/dashboard/payment_settings?valid=' + email_error);
+        else 
+        {
+            res.render('payment_settings', { data: req.user });
+            // res.send('Оплата не подключена')
         }
-    }
+    });
 });
 
 router.get('/payment_history', authCheck, (req, res) => {
