@@ -16,7 +16,18 @@ router.get('/:username', function(req, res, next) {
         if (err) throw err;
         console.log(user_data);
         if (user_data) {
-            res.render('streamer', { user_data: user_data});
+            models.YandexWallet.findOne({ userId: user_data._id }, (err, yandex_data) => {
+                if (err) throw err;
+                console.log(yandex_data);
+                if (user_data) {
+                    res.render('streamer', { yandex_data: yandex_data, user_data: user_data});
+                }
+                else
+                {
+                    // Have to raise ERROR 404, for now just rendering with messages
+                    res.render('error');
+                }
+            });
         }
         else
         {
@@ -24,6 +35,10 @@ router.get('/:username', function(req, res, next) {
             res.render('error');
         }
     });
+
+    // find credentials by userID 
+
+    // reciever
 
   });
 

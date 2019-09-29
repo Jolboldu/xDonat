@@ -33,7 +33,7 @@ html
     nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
       .container
         a.navbar-brand(href='/') #{user_data.username}
-        img.d-inline-block.align-top.rounded(src=src=user_data.profileImageUrl, width='50', height='50', alt='')
+        img.d-inline-block.align-top.rounded(src=user_data.profileImageUrl, width='50', height='50', alt='')
         //
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,20 +59,25 @@ html
     hr
     // Form
     .container
-      form
+      form(action = '/wallets/yandex/pay' method='POST')
         .form-group
-          label(for='exampleInputEmail1')  Твой псевдоним
-          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Вводить сюда')
+          label(for='donater')  Твой псевдоним
+          input#exampleInputEmail1.form-control(type='text', name='donater' aria-describedby='nickname', placeholder='Вводить сюда')
           //
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
             else.</small>
-        select.form-control(name='donate-type')
+        select.form-control(name='game')
           option(value='text_donate') Обычный текст
           option(value='slot_donate') Cлоты
           option(value='wheel_donate') Колесо Фортуны
         .form-group
+          label(for='Message') Сообщение
+          input.form-control(type='text', name='text' placeholder='Привет')
+        .form-group  
+          input(type='hidden', name='reciever', value=yandex_data.addressOfWallet)
+        .form-group
           label(for='exampleInputPassword1') Сумма
-          input#exampleInputPassword1.form-control(type='number', placeholder='150 рублей')
+          input.form-control(type='number', name='amount' placeholder='150 рублей')
         button.btn.btn-primary(type='submit') Submit
       hr
       //

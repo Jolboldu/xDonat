@@ -22,7 +22,7 @@ router.get('/payment_settings', authCheck, (req, res) => {
         if (err) throw err;
         console.log(data);
         console.log(req.user.id);
-        if (data) {
+        if (data.length) {
             res.render('payment_settings', { data: req.user, yandexData: data});
             // res.send('Оплата Подключена')
         }
@@ -51,6 +51,10 @@ router.post('/payment_settings', authCheck, (req, res) => {
                 addressOfWallet: yandex_address,
                 emailOfYandex: email,
             }).save((err) => {
+                if(err)
+                {
+                    res.send(err);
+                }
                 console.log('Added to database');
                 var success_message = encodeURIComponent('success_save');
                 res.redirect('/dashboard/payment_settings?valid=' + success_message);
@@ -69,4 +73,10 @@ router.get('/payment_history', authCheck, (req, res) => {
     res.render('payment_history', { data: req.user });
 });
 
+router.get('/w', authCheck, (req, res) => {
+    // res.send(req.user);
+    models.YandexWallet.find({}, (err,data)=>{
+        res.send(data)
+    })
+});
 module.exports = router;

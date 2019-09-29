@@ -40,8 +40,8 @@ router.post('/yandex/pay', (req, res) => {
         {
             res.send("err");
         }
-        res.render('form', {id: data.id, amount: req.body.amount});
-    })
+        res.render('form', {id: data.id, amount: req.body.amount, reciever: req.body.reciever});
+        })
 });
 
 // handling HTTP requests from Yandex after success payment to streamer
