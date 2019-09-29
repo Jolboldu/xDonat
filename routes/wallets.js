@@ -88,7 +88,7 @@ router.post('/socket', (req, res) => {
             res.send("its ok")//render whatever you want user id is dock.userID
         })
     })
-   
+});
 
 
 module.exports = router;
