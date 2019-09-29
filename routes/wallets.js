@@ -36,6 +36,10 @@ router.post('/yandex/pay', (req, res) => {
         game: req.body.game,
         reciever: req.body.reciever,
     }).save((err, data) => {
+        if(err)
+        {
+            res.send("err");
+        }
         res.render('form', {id: data.id, amount: req.body.amount});
     })
 });
