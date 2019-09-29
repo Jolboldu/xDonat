@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var models = require('../models')
 var validator = require("email-validator");
+var sha1 = require('sha1');
 
 const authCheck = (req, res, next) => {
     if(!req.user){
@@ -46,9 +47,16 @@ router.post('/yandex/pay', (req, res) => {
 
 // handling HTTP requests from Yandex after success payment to streamer
 router.post('/yandex/requests', (req, res) => {    
-    console.log(req.body);
+    var notoficationSecret = 'fNq4idPuN3eKt2j2SdBQXTb5';
 
-    paymentAccepted = true;
+    console.log(req.body);
+    var wholeInfo = req.body.notification_type + "&" + req.body.operation_id + "&" + req.body.amount + "&" + req.body.currency + "&" + req.body.datetime + "&" + req.body.sender + "&" + req.body.codepro + "&" + notoficationSecret + "&" + req.body.label;
+    if(req.body.sha1_hash == sha1(wholeInfo)){
+        paymentAccepted = true;
+        console.log("hashes are equal");
+    }else{
+        console.log("something went wrong");
+    }
     
     if(paymentAccepted)
     {
