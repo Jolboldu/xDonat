@@ -69,12 +69,14 @@ router.post('/yandex/requests', (req, res) => {
             {
                 console.log(err);
             }
-            var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
-                typeOfPayment : "yandex", //for now yandex is ok
-                paymentId : data.id,
-            }).save((err)=> {
-                res.redirect(307, '/socket') //http code 307 
-            })
+            // var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
+            //     typeOfPayment : "yandex", //for now yandex is ok
+            //     paymentId : data.id,
+            // }).save((err)=> {
+            //     res.redirect(307, '/socket') //http code 307 
+            // })
+            console.log(data);
+            res.send(data);
         })
     }
 });

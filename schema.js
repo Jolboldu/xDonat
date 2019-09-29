@@ -88,7 +88,7 @@ var paymentYandexSchema = new Schema({
 		required : true,
 	},
 	datetime : {
-		type : Date,
+		type : String,
 		required : true
 	},
 	sender : {
