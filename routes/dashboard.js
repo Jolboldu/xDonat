@@ -39,7 +39,7 @@ router.post('/payment_settings', authCheck, (req, res) => {
     //need to check if already exists wallet yandex
     models.YandexWallet.find({ userId: req.user.id }, (err, data) => {
         if (err) throw err;
-        if (data.length) {
+        if (data.length == 0) {
             if (yandex_address.length == 15) {
                 if (validator.validate(email)) {
 
