@@ -40,14 +40,14 @@ router.post('/payment_settings', authCheck, (req, res) => {
     models.YandexWallet.find({ userId: req.user.id }, (err, data) => {
         if (err) throw err;
         if (data.length == 0) {
-            if (yandex_address.length == 15) {
+            if (req.body.address.length == 15) {
                 if (validator.validate(email)) {
 
                     var newYandexWallet = models.YandexWallet({
                         userId: req.user.id,
                         addressOfWallet: req.body.address,
                         emailOfYandex: req.body.email,
-                        secretOfWallet: req.body.secretOfWallet,
+                        secretOfWallet: req.body.secret,
                     }).save((err) => {
                         if(err)
                         {
