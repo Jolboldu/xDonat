@@ -41,7 +41,7 @@ router.post('/payment_settings', authCheck, (req, res) => {
         if (err) throw err;
         if (data.length == 0) {
             if (req.body.address.length == 15) {
-                if (validator.validate(email)) {
+                if (validator.validate(req.body.email)) {
 
                     var newYandexWallet = models.YandexWallet({
                         userId: req.user.id,
