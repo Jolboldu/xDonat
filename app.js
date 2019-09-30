@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var socket_io = require('socket.io');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');//need it?
@@ -21,6 +22,21 @@ var keys = require('./constants');
 var passportSetup = require('./config/passport-setup')
 
 var app = express();
+
+// socket.io
+var io = socket_io();
+app.io = io;
+
+
+
+var donationRouter = require('./routes/donation')(io);
+
+
+// socket.io events
+io.on( "connection", function( socket )
+{
+    console.log( "A user connected" );
+});
 
 app.use(cors())
 
@@ -56,6 +72,7 @@ app.use('/users', userRouter);
 app.use('/wallets', WalletRouter);
 app.use('/games', gameRouter);
 app.use('/streamer', streamerRouter);
+app.use('/donation', donationRouter);
 // app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler

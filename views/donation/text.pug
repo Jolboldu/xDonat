@@ -1,0 +1,27 @@
+doctype html
+| PASTE YOUR HTML CODE HERE
+head
+  title Pug
+h1 Pug - node template engine
+#container.col
+  p 
+  p Pug is a terse and simple templating language.
+script(src='/socket.io/socket.io.js')
+script.
+  var socket = io();
+  // название рума
+  var room = "abc123";
+  socket.on('connect', function () {
+  // сюда заходит
+  socket.emit('room', room);
+  console.log('connected');
+  });
+  socket.on('message', function (data) {
+  <!-- // сюда не заходит -->
+  alert(data);
+  document.getElementById("container").innerHTML = data;
+  <!-- document.write(data); -->
+  });
+
+
+
