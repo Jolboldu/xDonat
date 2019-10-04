@@ -33,10 +33,10 @@ var donationRouter = require('./routes/donation')(io);
 
 
 // socket.io events
-io.on( "connection", function( socket )
-{
-    console.log( "A user connected" );
-});
+// io.on( "connection", function( socket )
+// {
+//     console.log( "A user connected" );
+// });
 
 app.use(cors())
 

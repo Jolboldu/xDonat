@@ -4,7 +4,7 @@ module.exports = {
 	'TWITCH_SECRET'    : 'rfmqvzuunfs4jivuofi8eomvyddhpl',
 	'SESSION_SECRET'   : 'sosilalka',
 //	'CALLBACK_URL'     : 'http://localhost:3000/auth/twitch/redirect',
-	'CALLBACK_URL'     : 'http://xdonat.com//auth/twitch/redirect',
+	'CALLBACK_URL'     : 'http://xdonat.com/auth/twitch/redirect',
 }
 
 // Local version 

@@ -27,7 +27,7 @@ var server = http.createServer(app);
  */
 
 var io = app.io
-io.attach( server );
+io.attach(server);
 
 
 
