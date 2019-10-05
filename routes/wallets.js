@@ -87,6 +87,9 @@ router.post('/yandex/requests', (req, res) => {
                 console.log("hashes are equal")
                 paymentAccepted = true;    
                 handleRequest(paymentAccepted, req, res)       
+            }else{
+                console.log("wrong hashes");
+                console.log(wallet.secretOfWallet);
             }
         })
     })
