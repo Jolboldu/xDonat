@@ -77,6 +77,7 @@ router.post('/yandex/pay', (req, res) => {
 router.post('/yandex/requests', (req, res) => {    
     console.log(req.body);
     models.Donate.find({_id: req.body.label}, (err, data) => {
+        console.log(data);
         console.log(data.reciever);
         models.YandexWallet.find({}, (error, wallet) => {
             console.log(wallet);
