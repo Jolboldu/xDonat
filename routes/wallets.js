@@ -76,7 +76,7 @@ router.post('/yandex/pay', (req, res) => {
 // handling HTTP requests from Yandex after success payment to streamer
 router.post('/yandex/requests', (req, res) => {    
     console.log(req.body);
-    models.Donate.find({id: req.body.label}, (err, data) => {
+    models.Donate.find({_id: req.body.label}, (err, data) => {
         console.log("donates data");
         console.log(data);
         models.YandexWallet.find({addressOfWallet : data.reciever }, (error, wallet)=>{
