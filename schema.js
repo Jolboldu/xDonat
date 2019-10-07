@@ -22,7 +22,7 @@ var yandexSchema = new Schema({
 		required : true
 	},
 	addressOfWallet : {
-		type : String,
+		type : Number,
 		required : true
 	},
 	emailOfYandex : {
