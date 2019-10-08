@@ -38,7 +38,7 @@ function handleRequest(paymentAccepted, req, res, donateData)
                 }).save((err)=> {
                     var gameData = encodeURIComponent(JSON.stringify(donateData));
                     var url = '/donation/' + donateData.game;
-                    res.redirect(307, url+'/?valid=' + gameData) //http code 307 
+                    res.redirect(url+'/?valid=' + gameData) //http code 307 
                 })
                 console.log(data);
             })
