@@ -2,7 +2,7 @@ var router = require('express').Router();
 var models = require('../models')
 var validator = require("email-validator");
 var sha1 = require('sha1');
-var donationLib = require('./donation');
+var donationLib = require('./donation.js');
 
 const authCheck = (req, res, next) => {
     if(!req.user){
