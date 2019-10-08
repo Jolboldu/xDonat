@@ -20,7 +20,9 @@ module.exports = function (io) {
 
   router.get('/text_donate', (req, res) => {
     res.render('donation/text');
+  });
 
+  exports.textDonate = function(data) {
     var isDonation = true
 
     if(isDonation)
@@ -67,8 +69,9 @@ module.exports = function (io) {
     }, 2000);
 
     }
+  };
 
-  });
+
 
 
 
@@ -159,4 +162,3 @@ module.exports = function (io) {
 
   return router;
 }
-

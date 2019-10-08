@@ -2,6 +2,7 @@ var router = require('express').Router();
 var models = require('../models')
 var validator = require("email-validator");
 var sha1 = require('sha1');
+var donationLib = require('./donation');
 
 const authCheck = (req, res, next) => {
     if(!req.user){
@@ -36,7 +37,11 @@ function handleRequest(paymentAccepted, req, res, donateData)
                     typeOfPayment : "yandex", //for now yandex is ok
                     paymentId : data.id,
                 }).save((err)=> {
-                
+                    // var gameData = encodeURIComponent(JSON.stringify(donateData));
+                    // var url = '/donation';
+                    test_data = 'pusto poka';
+                    donationLib.textDonate(test_data);
+                    // res.redirect(url+'/?valid=' + gameData) //http code 307 
                 })
                 console.log(data);
             })
