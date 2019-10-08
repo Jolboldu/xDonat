@@ -110,6 +110,10 @@ module.exports = function (io) {
 
   });  
 
+  router.get('/', (req, res) => {
+    console.log('redirect works');
+  });
+
   router.post('/ttsc', function(req, res){
   
   console.log('zashel')
