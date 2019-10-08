@@ -2,6 +2,7 @@ module.exports = function (io) {
 
   var router = require('express').Router();
   var models = require('../models');
+  const textToSpeech = require('@google-cloud/text-to-speech')
 
   router.get('/tts', function(req, res){
 
