@@ -1,20 +1,46 @@
-form(method='POST', action='https://money.yandex.ru/quickpay/confirm.xml')
-  input(type='hidden', name='receiver', value=reciever)
-  input(type='hidden', name='formcomment', value='Проект «Железный человек»: реактор холодного ядерного синтеза')
-  input(type='hidden', name='short-dest', value='Проект «Железный человек»: реактор холодного ядерного синтеза')
-  input(type='hidden', name='label', value=id)
-  input(type='hidden', name='quickpay-form', value='donate')
-  input(type='hidden', name='targets', value='Донат')
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='shortcut icon', sizes='16x16', href='/favicon.ico', type='image/x-icon')
+  title Оплата
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  style(media='screen').
+    form {
+    margin: 10% auto;
+    width:30%;
+    border: 1px solid #DDDDDD;
+    }
+    label{
+    margin: 5%;
+    }
+    .radio{
+    margin-right: 10px;
+    }
+    .sbm{
+    text-align: center;
+    margin-top: 5%;
+    }
+form.shadow.p-3.mb-5.bg-white.rounded(method='POST' action='https://money.yandex.ru/quickpay/confirm.xml')
+  input(type='hidden' name='receiver' value=reciever)
+  input(type='hidden' name='formcomment' value='Проект «Железный человек»: реактор холодного ядерного синтеза')
+  input(type='hidden' name='short-dest' value='Проект «Железный человек»: реактор холодного ядерного синтеза')
+  input(type='hidden' name='label' value=id)
+  input(type='hidden' name='quickpay-form' value='donate')
+  input(type='hidden' name='targets' value='Донат')
   input(type='hidden', name='sum', value=amount, data-type='number')
-  input(type='hidden', name='comment', value='Тупо лучшему!')
-  input(type='hidden', name='need-fio', value='false')
-  input(type='hidden', name='need-email', value='false')
-  input(type='hidden', name='need-phone', value='false')
-  input(type='hidden', name='need-address', value='false')
-  label
-    input(type='radio', name='paymentType', value='PC')
-    | Яндекс.Деньгами
-  label
-    input(type='radio', name='paymentType', value='AC')
-    | Банковской картой
-  input(type='submit', value='Перевести')
+  input(type='hidden' name='comment' value='Тупо лучшему!')
+  input(type='hidden' name='need-fio' value='false')
+  input(type='hidden' name='need-email' value='false')
+  input(type='hidden' name='need-phone' value='false')
+  input(type='hidden' name='need-address' value='false')
+  .payment
+    label
+      input.radio(type='radio' name='paymentType' value='PC')
+      | Яндекс.Деньгами
+    label
+      input.radio(type='radio' name='paymentType' value='AC')
+      | Банковской картой
+  .sbm
+    input.btn.btn-success.center(type='submit' value='Перевести')
+    div

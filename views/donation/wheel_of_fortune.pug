@@ -24,7 +24,7 @@ div(align='center')
           canvas#canvas(width='434' height='434')
             p(style='{color: white}' align='center')  &Kcy;&acy;&zhcy;&iecy;&tcy;&scy;&yacy; &vcy;&acy;&shcy; &bcy;&rcy;&acy;&ucy;&zcy;&iecy;&rcy; &ncy;&iecy; &pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&icy;&vcy;&acy;&tcy;&iecy; canvas
   script.
-    function showDiv(text) {
+    function showDonation() {
     var x = document.getElementById("wheel");
     x.style.display = "block";
     }
@@ -38,30 +38,30 @@ div(align='center')
     'numSegments': 24,         // Specify number of segments.
     'segments':             // Define segments including colour and text.
     [                               // font size and test colour overridden on backrupt segments.
-    { 'fillStyle': '#ee1c24', 'text': '300', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '450', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '600', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '750', 'message': 'алло' },
-    { 'fillStyle': '#f26522', 'text': '500', 'message': 'алло' },
-    { 'fillStyle': '#000000', 'text': 'BANKRUPT', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
-    { 'fillStyle': '#e70697', 'text': '3000', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '600', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '700', 'message': 'алло' },
-    { 'fillStyle': '#ee1c24', 'text': '350', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '500', 'message': 'алло' },
-    { 'fillStyle': '#f26522', 'text': '800', 'message': 'алло' },
-    { 'fillStyle': '#a186be', 'text': '300', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '400', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '650', 'message': 'алло' },
-    { 'fillStyle': '#ee1c24', 'text': '1000', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '500', 'message': 'алло' },
-    { 'fillStyle': '#f26522', 'text': '400', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '900', 'message': 'алло' },
-    { 'fillStyle': '#000000', 'text': 'BANKRUPT', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
-    { 'fillStyle': '#a186be', 'text': '600', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '700', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '800', 'message': 'алло' },
-    { 'fillStyle': '#ffffff', 'text': 'LOOSE TURN', 'textFontSize': 12 }
+    { 'fillStyle': '#ee1c24', 'text': '30', 'message': 'алло' },
+    { 'fillStyle': '#3cb878', 'text': '45', 'message': 'алло' },
+    { 'fillStyle': '#f6989d', 'text': '60', 'message': 'алло' },
+    { 'fillStyle': '#00aef0', 'text': '75', 'message': 'алло' },
+    { 'fillStyle': '#f26522', 'text': '50', 'message': 'алло' },
+    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
+    { 'fillStyle': '#e70697', 'text': '30', 'message': 'алло' },
+    { 'fillStyle': '#fff200', 'text': '60', 'message': 'алло' },
+    { 'fillStyle': '#f6989d', 'text': '70', 'message': 'алло' },
+    { 'fillStyle': '#ee1c24', 'text': '35', 'message': 'алло' },
+    { 'fillStyle': '#3cb878', 'text': '50', 'message': 'алло' },
+    { 'fillStyle': '#f26522', 'text': '80', 'message': 'алло' },
+    { 'fillStyle': '#a186be', 'text': '30', 'message': 'алло' },
+    { 'fillStyle': '#fff200', 'text': '40', 'message': 'алло' },
+    { 'fillStyle': '#00aef0', 'text': '65', 'message': 'алло' },
+    { 'fillStyle': '#ee1c24', 'text': '100', 'message': 'алло' },
+    { 'fillStyle': '#f6989d', 'text': '50', 'message': 'алло' },
+    { 'fillStyle': '#f26522', 'text': '40', 'message': 'алло' },
+    { 'fillStyle': '#3cb878', 'text': '90', 'message': 'алло' },
+    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
+    { 'fillStyle': '#a186be', 'text': '60', 'message': 'алло' },
+    { 'fillStyle': '#fff200', 'text': '70', 'message': 'алло' },
+    { 'fillStyle': '#00aef0', 'text': '80', 'message': 'алло' },
+    { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'textFontSize': 12 }
     ],
     'animation':           // Specify the animation to use.
     {
@@ -145,6 +145,7 @@ div(align='center')
     // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
     // -------------------------------------------------------
     function alertPrize(indicatedSegment) {
+    //- Озвучка текста
     // Just alert to the user what happened.
     // In a real project probably want to do something more interesting than this with the result.
     if (indicatedSegment.text == 'LOOSE TURN') {
@@ -155,8 +156,34 @@ div(align='center')
     // indicatedSegment.message это текст который пока надо озвучить
     alert("You have won " + indicatedSegment.message);
     }
+
+    var txt = {
+        text: indicatedSegment.message
     }
-    function hideDiv() {
+
+    $.ajax({
+        type: 'POST',
+        url:'/donation/ttsc',
+        data: txt,
+        success:function(data){
+          console.log(data);
+          appendAudio();
+          console.log("audio appended");
+          var audio = document.getElementById("audio");
+          audio.play();
+          audio.onended = () => {
+            removeAudio();
+          };
+        },
+        error:function(error){
+          console.log("Error: Audio wasn't created");
+        }
+      });
+
+    }
+
+
+    function hideDonation() {
     wheelSpinning = false;
     var x = document.getElementById("wheel");
     x.style.display = "none";
@@ -165,7 +192,17 @@ div(align='center')
     theWheel.draw();                // Call draw to render changes to the wheel.
     }
 
-            $(function () {
+    function appendAudio(){
+      $('#audio-container').append(
+        '<audio controls preload="none" id="audio" style="display: none;">'+
+            '<source src="https://xdonat.com/donation/tts" type="audio/ogg"/>'+
+            '<source src="https://xdonat.com/donation/tts" type="audio/mpeg"/>'+
+          '</audio>');
+    }
+
+    function removeAudio(){
+        $('#audio').remove();
+    }
 
     var socket = io();
     if(socket !== null)
@@ -179,13 +216,12 @@ div(align='center')
     console.log('connected to ' + room);
     });
     // message
-    socket.on('message', function (data) {
-     console.log(data)
-     showDiv(data);
-     startSpin();
+    socket.on('message', function () {
+     console.log()
+     showDonation()
+     startSpin()
      setTimeout(function () {
-         hideDiv()
+         hideDonation()
      }, 12000);
      });
     }
-            });

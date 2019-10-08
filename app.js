@@ -8,6 +8,10 @@ var passport = require('passport');
 var mongoose = require('mongoose')
 var cookieSession = require('cookie-session')
 var cors = require('cors')
+// const textToSpeech = require('@google-cloud/text-to-speech')
+var fs = require('fs')
+var util = require('util')
+
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth-routes');

@@ -2,17 +2,17 @@ head
   // Mobile Specific Meta
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   // Favicon
-  link(rel='shortcut icon' href='img/fav.png')
+  link(rel='shortcut icon' href='/favicon.ico')
   // Author Meta
-  meta(name='author' content='codepixer')
+  meta(name='author' content='Xdonat')
   // Meta Description
-  meta(name='description' content='')
+  meta(name='description' content='Игры, донаты для стримеров')
   // Meta Keyword
-  meta(name='keywords' content='')
+  meta(name='keywords' content='стример, twitch, твич, стрим, донаты, obs')
   // meta character set
   meta(charset='UTF-8')
   // Site Title
-  title XDonate
+  title XDonat
   //
     CSS
     =============================================
@@ -60,10 +60,10 @@ section.home-banner-area
     .row.fullscreen.d-flex.align-items-center.justify-content-between
       .home-banner-content.col-lg-6.col-md-6
         h1
-          | &Ncy;&ocy;&vcy;&ycy;&jcy; &ucy;&rcy;&ocy;&vcy;&iecy;&ncy;&softcy; &pcy;&ocy;&gcy;&rcy;&ucy;&zhcy;&iecy;&ncy;&icy;&yacy; 
+          | Новый уровень погружения  
           br
-          |  &Dcy;&lcy;&yacy; &zcy;&rcy;&icy;&tcy;&iecy;&lcy;&yacy;
-        p &Pcy;&ocy;&lcy;&ucy;&chcy;&icy; &scy;&acy;&mcy;&ycy;&iecy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &icy;&ncy;&scy;&tcy;&rcy;&ucy;&mcy;&iecy;&ncy;&tcy;&ycy; &dcy;&lcy;&yacy; &mcy;&ocy;&ncy;&iecy;&tcy;&icy;&zcy;&acy;&tscy;&icy;&icy; &scy;&vcy;&ocy;&icy;&khcy; &tcy;&rcy;&acy;&ncy;&scy;&lcy;&yacy;&tscy;&icy;&jcy;.
+          | Для зрителя
+        p Получи самые лучшие инструменты для монетизации своих трансляций.
         .download-button.d-flex.flex-row.justify-content-start
           //
             <div class="buttons flex-row d-flex">
@@ -82,20 +82,22 @@ section.home-banner-area
             .desc
               a(href='/auth/twitch')
                 p
-                  span &Vcy;&ocy;&jcy;&tcy;&icy;
+                  span Войти
                   br
-                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&chcy;&iecy;&rcy;&iecy;&zcy; Twitch.tv
+                  | через Twitch.tv
       .banner-img.col-lg-4.col-md-6
         img.img-fluid(src='dir_landing/img/banner-img.png' alt='')
 // End banner Area
 // Start about-video Area
+hr
 section.about-video-area.section-gap
   .container
-    .row.align-items-center.justify-content-center
-      .col-lg-12.about-video-right.justify-content-center.align-items-center.d-flex.relative
-        .overlay.overlay-bg
-        a.play-btn(href='https://www.youtube.com/watch?v=ARA0AxrnHdM')
-          img.img-fluid.mx-auto(src='dir_landing/img/play-btn.png' alt='')
+    .row.d-flex.justify-content-center
+      .col-lg-12    
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/180491843" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        //- .overlay.overlay-bg
+        //- a.play-btn(href='https://www.youtube.com/watch?v=ARA0AxrnHdM')
+        //-   img.img-fluid.mx-auto(src='dir_landing/img/play-btn.png' alt='')
 // End about-video Area
 // Start Pricing Area
 hr
@@ -104,16 +106,16 @@ section.pricing-area
     .row.d-flex.justify-content-center
       .col-lg-6
         .section-title.text-center
-          h2 &Vcy;&ycy;&bcy;&iecy;&rcy;&icy; &lcy;&ucy;&chcy;&shcy;&icy;&jcy; &pcy;&lcy;&acy;&ncy;
+          h2 Выбери лучший план
           p
-            | &Mcy;&ycy; &ncy;&iecy; &bcy;&iecy;&rcy;&iecy;&mcy; &ncy;&icy;&kcy;&acy;&kcy;&icy;&khcy; &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy; &zcy;&acy; &ncy;&acy;&shcy;&icy; &ucy;&scy;&lcy;&ucy;&gcy;&icy; &icy; &pcy;&rcy;&iecy;&dcy;&ocy;&scy;&tcy;&acy;&vcy;&lcy;&yacy;&iecy;&mcy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &rcy;&iecy;&shcy;&iecy;&ncy;&icy;&yacy;, &kcy;&ocy;&tcy;&ocy;&rcy;&ycy;&iecy; &dcy;&acy;&dcy;&ucy;&tcy; &vcy;&acy;&mcy; &ncy;&iecy;&vcy;&iecy;&rcy;&ocy;&yacy;&tcy;&ncy;&ycy;&jcy; &bcy;&ucy;&scy;&tcy; &kcy; &icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&ocy;&scy;&tcy;&icy;, &vcy;&ocy;&vcy;&lcy;&iecy;&chcy;&iecy;&ncy;&ncy;&ocy;&scy;&tcy;&icy; &icy; &pcy;&rcy;&icy;&bcy;&ycy;&lcy;&icy;.
+            | Мы не берем никаких комиссий за наши услуги и предоставляем лучшие решения, которые дадут вам невероятный буст к интерактивности, вовлеченности и количеству донатов.
     .row
       .col-lg-4.col-md-6
         .single-price
           .top-sec.d-flex.justify-content-between
             .top-left
-              h4 &Ncy;&acy;&chcy;&icy;&ncy;&acy;&yucy;&shchcy;&icy;&jcy;
-              p 7 &dcy;&ncy;&iecy;&jcy;
+              h4 Начинающий
+              p 7 дней
             .top-right
               h1 0&#x20BD;
           .end-sec
@@ -182,7 +184,6 @@ script(src='https://code.jquery.com/jquery-2.2.4.min.js' integrity='sha256-Bbhdl
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
-script(type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')
 script(src='dir_landing/js/easing.min.js')
 script(src='dir_landing/js/hoverIntent.js')
 script(src='dir_landing/js/superfish.min.js')

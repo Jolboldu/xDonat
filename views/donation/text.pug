@@ -2,51 +2,26 @@ doctype html
 html(lang='en', dir='ltr')
   head
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(href='https://fonts.googleapis.com/css?family=EB+Garamond&display=swap', rel='stylesheet')
     title Text Donation
     style(media='screen').
-      .pulsate {
-      -webkit-animation: pulsate 3s ease-out;
-      -webkit-animation-iteration-count: infinite;
-      opacity: 0.5;
-      color: orange;
+      .container {
       text-align: center;
-      font-size: 300%;
-      }
-      @-webkit-keyframes pulsate {
-      0% {
-      opacity: 0.5;
-      }
-      50% {
-      opacity: 1.0;
-      }
-      100% {
-      opacity: 0.5;
-      }
-      }
-      .center {
       display: block;
       margin-left: auto;
       margin-right: auto;
       font-family: 'EB Garamond', serif;
       }
-      .ml9 {
-      padding: 0 20%;
-      text-align: center;
-      font-size: 150%;
-      color: white;
-      font-family: 'EB Garamond', serif;
+      h1 {
+      color: #0abde3;
       }
-  script(src='/socket.io/socket.io.js')
+    script(src='/socket.io/socket.io.js')
   body
-    #donation.container
-      img.center(src='giphy.gif', alt='this slowpoke moves', width='150/')
-      h1.pulsate Вася - 100₽
-      h1.ml9
-        span.text-wrapper
-          span.letters
-            | Привет Паша. Как твои дела? когда катнешь на ИС7? Я давно хотел задонатить и вот появилась возможность
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js')
+    #donation.container(style='display:none;')
+      h1#donater-info
+      h2#text
+    #audio-container(style='display: none;')
     script(type='text/javascript').
       var socket = io();
       if (socket !== null) {
@@ -58,31 +33,42 @@ html(lang='en', dir='ltr')
       socket.emit('room', room);
       console.log('connected to ' + room);
       });
-      // message
+      // Donation
       socket.on('message', function(data) {
-      console.log(data)
-      showDonation(data);
+      //- console.log(data)
+      showDonation(data)
+      appendAudio()
+      var audio = document.getElementById("audio")
+      audio.play()
+      audio.onended = () => {
+      removeAudio()
+      };
       setTimeout(function() {
-      hideDiv()
-      }, 5000);
+      hideDonation()
+      }, 7000);
       });
       }
       function showDonation(data) {
-      //- var textWrapper = document.querySelector('.ml9 .letters');
-      //- textWrapper.innerHTML = data;
-      document.getElementById("donation").innerHTML = data;
-      anime.timeline({
-      loop: false
-      })
-      .add({
-      targets: '.ml9 .letter',
-      scale: [0, 1],
-      duration: 1500,
-      elasticity: 600,
-      delay: (el, i) => 30 * (i + 30),
-      });
+      console.log(data)
+      var donationObj = JSON.parse(data)
+      var x = document.getElementById("donation");
+      x.style.display = "block";
+      document.getElementById("donater-info").innerHTML = donationObj.donater + ' - ' + donationObj.amount;
+      document.getElementById("text").innerHTML = donationObj.text;
+      appendAudio();
       }
-      function hideDiv() {
+      function hideDonation() {
       var x = document.getElementById("donation");
       x.style.display = "none";
       }
+      function appendAudio(){
+      $('#audio-container').append(
+      '<audio controls preload="none" id="audio" style="display: none;">'+
+      '<source src="http://xdonat.com/tts" type="audio/ogg"/>'+
+      '<source src="http://xdonat.com/tts" type="audio/mpeg"/>'+
+      '</audio>');
+      }
+      function removeAudio(){
+      $('#audio').remove();
+      }
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
