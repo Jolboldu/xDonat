@@ -18,7 +18,7 @@ module.exports = function (io) {
 
   });
 
-  router.get('/text', (req, res) => {
+  router.get('/text_donate', (req, res) => {
     res.render('donation/text');
 
     var isDonation = true
@@ -73,7 +73,7 @@ module.exports = function (io) {
 
 
   // НЕ РАБОТАЕТ, НЕТ views
-  router.get('/slot', (req, res) => {
+  router.get('/slot_donate', (req, res) => {
   res.render('donation/slot');
 
   setTimeout(function() {     
@@ -89,7 +89,7 @@ module.exports = function (io) {
   });
 
   // РАБОТАЕТ
-  router.get('/wheel_of_fortune', (req, res) => {
+  router.get('/wheel_donate', (req, res) => {
     res.render('donation/wheel_of_fortune');
 
     setTimeout(function() {     

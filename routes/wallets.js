@@ -11,7 +11,7 @@ const authCheck = (req, res, next) => {
     }
 };
 
-function handleRequest(paymentAccepted, req, res)
+function handleRequest(paymentAccepted, req, res, donateData)
     {
         if(paymentAccepted)
         {
@@ -36,8 +36,9 @@ function handleRequest(paymentAccepted, req, res)
                     typeOfPayment : "yandex", //for now yandex is ok
                     paymentId : data.id,
                 }).save((err)=> {
-                    console.log("im in niggas");
-                    res.redirect(307, '/wallets/socket') //http code 307 
+                    var gameData = encodeURIComponent(JSON.stringify(donateData));
+                    var url = '/donation/' + donateData.game;
+                    res.redirect(307, url+'/?valid=' + gameData) //http code 307 
                 })
                 console.log(data);
             })
@@ -82,7 +83,7 @@ router.post('/yandex/requests', (req, res) => {
             if(req.body.sha1_hash == sha1(wholeInfo)){
                 console.log("hashes are equal")
                 paymentAccepted = true;    
-                handleRequest(paymentAccepted, req, res)       
+                handleRequest(paymentAccepted, req, res, data)       
             }else{
                 console.log("wrong hashes");
                 console.log(wallet.secretOfWallet);
