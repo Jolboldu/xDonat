@@ -36,9 +36,7 @@ function handleRequest(paymentAccepted, req, res, donateData)
                     typeOfPayment : "yandex", //for now yandex is ok
                     paymentId : data.id,
                 }).save((err)=> {
-                    var gameData = encodeURIComponent(JSON.stringify(donateData));
-                    var url = '/donation';
-                    res.redirect(url+'/?valid=' + gameData) //http code 307 
+                
                 })
                 console.log(data);
             })
