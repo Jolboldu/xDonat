@@ -1,6 +1,6 @@
   var router = require('express').Router();
   var models = require('../models');
-  // const textToSpeech = require('@google-cloud/text-to-speech')
+  const textToSpeech = require('@google-cloud/text-to-speech')
   var fs = require('fs')
   var util = require('util')
   var socketLib = require('../socketApi.js')
@@ -22,7 +22,7 @@
 
   router.get('/text_donate', (req, res) => {
     res.render('donation/text');
-    socketLib.textDonate();
+    // socketLib.textDonate();
   });
 
   // НЕ РАБОТАЕТ, НЕТ views
