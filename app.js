@@ -1,6 +1,5 @@
 var createError = require('http-errors');
 var express = require('express');
-var socket_io = require('socket.io');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');//need it?
@@ -8,7 +7,7 @@ var passport = require('passport');
 var mongoose = require('mongoose')
 var cookieSession = require('cookie-session')
 var cors = require('cors')
-const textToSpeech = require('@google-cloud/text-to-speech')
+// const textToSpeech = require('@google-cloud/text-to-speech')
 var fs = require('fs')
 var util = require('util')
 
@@ -27,20 +26,10 @@ var passportSetup = require('./config/passport-setup')
 
 var app = express();
 
-// socket.io
-var io = socket_io();
-app.io = io;
 
 
+var donationRouter = require('./routes/donation');
 
-var donationRouter = require('./routes/donation')(io);
-
-
-// socket.io events
-// io.on( "connection", function( socket )
-// {
-//     console.log( "A user connected" );
-// });
 
 app.use(cors())
 
