@@ -1,4 +1,7 @@
 var socket_io = require('socket.io');
+const textToSpeech = require('@google-cloud/text-to-speech')
+var fs = require('fs')
+var util = require('util')
 
 var io = socket_io();
 var socketApi = {};
