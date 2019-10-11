@@ -5,9 +5,12 @@
   var util = require('util')
   var socketLib = require('../socketApi.js')
 
-  router.get('/tts', function(req, res){
 
-    const file = __dirname + '/output.mp3';
+  var appDir = process.cwd();
+
+  router.get('/tts', function(req, res){
+    console.log(appDir);
+    const file = appDir + '/output.mp3';
     fs.exists(file, (exists) => {
         if (exists) {
             const rstream = fs.createReadStream(file);
@@ -29,13 +32,13 @@
   router.get('/slot_donate', (req, res) => {
   res.render('donation/slot');
 
-  // setTimeout(function() {     
+  // setTimeout(function() {
 
   //   // userid это рум
   // room = "abc123";
   // // хочу отправить сообщение в данный рум
   // // 'hello world' заменю на переменную текста
-  // io.to(room).emit('message', 'hello world') 
+  // io.to(room).emit('message', 'hello world')
 
   // }, 4000);
 
@@ -45,20 +48,20 @@
   router.get('/wheel_donate', (req, res) => {
     res.render('donation/wheel_of_fortune');
 
-    // setTimeout(function() {     
+    // setTimeout(function() {
 
     //   // userid это рум
     // room = "abc123";
     // // хочу отправить сообщение в данный рум
     // // 'hello world' заменю на переменную текста
-    // io.to(room).emit('message') 
+    // io.to(room).emit('message')
 
     // }, 4000);
 
-  });  
+  });
 
   router.post('/ttsc', function(req, res){
-  
+
   console.log('zashel')
   async function main() {
      // Creates a client
