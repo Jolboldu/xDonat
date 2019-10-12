@@ -24,6 +24,32 @@ head
   link(rel='stylesheet' href='dir_landing/css/hexagons.min.css')
   link(rel='stylesheet' href='dir_landing/css/owl.carousel.css')
   link(rel='stylesheet' href='dir_landing/css/main.css')
+  style(media='screen').
+    .crop {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    }
+    .ani-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1px;
+    height: 100vh;
+    }
+    .el {
+    position: absolute;
+    opacity: 1;
+    width: 2px;
+    height: 15vh;
+    margin-top: -12vh;
+    transform-origin: 50% 100%;
+    background: white;
+    }
+
 // start header Area
 header#header
   .container.main-menu
@@ -85,8 +111,11 @@ section.home-banner-area
                   span Войти
                   br
                   | через Twitch.tv
-      .banner-img.col-lg-4.col-md-6
-        img.img-fluid(src='dir_landing/img/banner-img.png' alt='')
+      .col-lg-4.col-md-6.crop
+        .ani-wrapper
+
+      //- .banner-img.col-lg-4.col-md-6
+      //-   img.img-fluid(src='dir_landing/img/banner-img.png' alt='')
 // End banner Area
 // Start about-video Area
 hr
@@ -196,3 +225,39 @@ script(src='dir_landing/js/jquery.nice-select.min.js')
 script(src='dir_landing/js/waypoints.min.js')
 script(src='dir_landing/js/mail-script.js')
 script(src='dir_landing/js/main.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js')
+script.
+  const wrapperEl = document.querySelector('.ani-wrapper');
+  const numberOfEls = 90;
+  const duration = 6000;
+  const delay = duration / numberOfEls;
+  let tl = anime.timeline({
+  duration: delay,
+  complete: function() { tl.restart(); }
+  });
+  function createEl(i) {
+  let el = document.createElement('div');
+  const rotate = (360 / numberOfEls) * i;
+  const translateY = -50;
+  const hue = Math.round(360 / numberOfEls * i);
+  el.classList.add('el');
+  el.style.backgroundColor = 'hsl(' + hue + ', 40%, 60%)';
+  el.style.transform = 'rotate(' + rotate + 'deg) translateY(' + translateY + '%)';
+  tl.add({
+  begin: function() {
+  anime({
+  targets: el,
+  backgroundColor: ['hsl(' + hue + ', 40%, 60%)', 'hsl(' + hue + ', 60%, 80%)'],
+  rotate: [rotate + 'deg', rotate + 10 +'deg'],
+  translateY: [translateY + '%', translateY + 10 + '%'],
+  scale: [1, 1.25],
+  easing: 'easeInOutSine',
+  direction: 'alternate',
+  duration: duration * .1
+  });
+  }
+  });
+  wrapperEl.appendChild(el);
+  };
+  for (let i = 0; i < numberOfEls; i++) createEl(i);
+

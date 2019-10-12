@@ -31,7 +31,7 @@ socketApi.hello = function() {
 	console.log('hello');
 }
 
-socketApi.textDonate = function() {
+socketApi.text_donate = function() {
 	 var isDonation = true
 
     if(isDonation)
@@ -45,31 +45,33 @@ socketApi.textDonate = function() {
     var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
     io.to(room).emit('message', data) 
 
-    // Function to Work with sounds
-      async function main() {
-       // Creates a client
-       const client = new textToSpeech.TextToSpeechClient();
-       // The text to synthesize
-       // const text = req.body.text
-       const text = 'Привет мир'
-       //Construct the request
-       const request = {
-         input: {text: text},
-         // Select the language and SSML Voice Gender (optional)
-         voice: {languageCode: 'ru-RU', ssmlGender: 'MALE'},
-         // Select the type of audio encoding
-         audioConfig: {audioEncoding: 'MP3'},
-       };
-       // // Performs the Text-to-Speech request
-       const [response] = await client.synthesizeSpeech(request);
-       // Write the binary audio content to a local file
-       const writeFile = util.promisify(fs.writeFile);
-       await writeFile('output.mp3', response.audioContent, 'binary');
 
-       console.log('Audio content written to file: output.mp3');
-       // res.sendStatus(200);
-      }
-      main();
+
+    // Function to Work with sounds
+      // async function main() {
+      //  // Creates a client
+      //  const client = new textToSpeech.TextToSpeechClient();
+      //  // The text to synthesize
+      //  // const text = req.body.text
+      //  const text = 'Привет мир'
+      //  //Construct the request
+      //  const request = {
+      //    input: {text: text},
+      //    // Select the language and SSML Voice Gender (optional)
+      //    voice: {languageCode: 'ru-RU', ssmlGender: 'MALE'},
+      //    // Select the type of audio encoding
+      //    audioConfig: {audioEncoding: 'MP3'},
+      //  };
+      //  // // Performs the Text-to-Speech request
+      //  const [response] = await client.synthesizeSpeech(request);
+      //  // Write the binary audio content to a local file
+      //  const writeFile = util.promisify(fs.writeFile);
+      //  await writeFile('output.mp3', response.audioContent, 'binary');
+
+      //  console.log('Audio content written to file: output.mp3');
+      //  // res.sendStatus(200);
+      // }
+      // main();
 
 
 
