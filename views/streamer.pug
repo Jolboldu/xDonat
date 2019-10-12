@@ -62,23 +62,23 @@ html
       form(action = '/wallets/yandex/pay' method='POST')
         .form-group
           label(for='donater')  Твой псевдоним
-          input#exampleInputEmail1.form-control(type='text', name='donater' aria-describedby='nickname', placeholder='Вводить сюда')
+          input#exampleInputEmail1.form-control(type='text', name='donater' aria-describedby='nickname', placeholder='Вводить сюда' required)
           //
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
             else.</small>
-        select.form-control(name='game')
+        select.form-control(name='game' required)
           option(value='text_donate') Обычный текст
           option(value='slot_donate') Cлоты
           option(value='wheel_donate') Колесо Фортуны
         .form-group
           label(for='Message') Сообщение
-          input.form-control(type='text', name='text' placeholder='Привет')
+          input.form-control(type='text', name='text' placeholder='Привет' required)
         .form-group  
-          input(type='hidden', name='reciever', value=yandex_data.addressOfWallet)
+          input(type='hidden', name='reciever', value=yandex_data.addressOfWallet required)
         .form-group
           label(for='exampleInputPassword1') Сумма
-          input.form-control(type='number', name='amount', placeholder='150 рублей')
-          input.form-control(type='hidden', name='userId', value=user_data.id)
+          input.form-control(type='number', name='amount', placeholder='150 рублей' required)
+          input.form-control(type='hidden', name='userId', value=user_data.id required)
         button.btn.btn-primary(type='submit') Submit
       hr
       //

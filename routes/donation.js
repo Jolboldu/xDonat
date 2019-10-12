@@ -47,6 +47,7 @@
   // РАБОТАЕТ
   router.get('/wheel_donate', (req, res) => {
     res.render('donation/wheel_of_fortune');
+    socketLib.text_donate();
 
     // setTimeout(function() {
 
