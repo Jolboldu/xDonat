@@ -52,7 +52,7 @@ socketApi.text_donate = function() {
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
        // const text = req.body.text
-       const text = 'Привет мир'
+       const text = 'Привет Твич Мир'
        //Construct the request
        const request = {
          input: {text: text},
