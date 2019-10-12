@@ -39,7 +39,7 @@ function handleRequest(paymentAccepted, req, res, donateData)
                 }).save((err)=> {
                     // var gameData = encodeURIComponent(JSON.stringify(donateData));
                     // var url = '/donation';
-                    socketLib.textDonate();
+                    socketLib.text_donate();
                     // res.redirect(url+'/?valid=' + gameData) //http code 307 
                 })
                 console.log(data);

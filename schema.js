@@ -55,7 +55,7 @@ var donateSchema = new Schema({
 	amount: {
 		type: Number,
 		required: true,
-	}
+	},
 	datetime : {
 		type : Date,
 		default: Date.now,

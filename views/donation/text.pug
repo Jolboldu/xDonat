@@ -21,7 +21,13 @@ html(lang='en', dir='ltr')
     #donation.container(style='display:none;')
       h1#donater-info
       h2#text
-    #audio-container(style='display: none;')
+    //- #audio-container(style='display: none;')
+      //- audio#audio(controls='', style='display: none;')
+      //-   source(src='http://localhost:3000/donation/tts', type='audio/ogg')
+      //-   source(src='http://localhost:3000/donation/tts', type='audio/mpeg')
+
+
+
     script(type='text/javascript').
       var socket = io();
       if (socket !== null) {
@@ -33,20 +39,53 @@ html(lang='en', dir='ltr')
       socket.emit('room', room);
       console.log('connected to ' + room);
       });
+
       // Donation
       socket.on('message', function(data) {
-      //- console.log(data)
+      
+      //- appendAudio()
+      //- var audio = document.getElementById("audio")
+      //- audio.load();
+
       showDonation(data)
-      appendAudio()
-      var audio = document.getElementById("audio")
-      audio.play()
-      audio.onended = () => {
-      removeAudio()
-      };
+
+
+      soundManager.setup({
+          url: '/soundmanager/swf/',
+          onready: function() {
+          var mySound = soundManager.createSound({
+          id: 'aSound',
+          url: '/output.mp3'
+          });
+          mySound.play();
+          //- mySound.canplay = function()
+          //- {            
+          },
+          ontimeout: function() {
+              console.log('Could not load file')
+              // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
+          }
+      });
+      //- audio.oncanplaythrough = function() {
+      //-     //- alert("Can start playing video");
+      //-     audio.play();
+      //- };
+      //- audio.addEventListener('oncanplay', function() { 
+      //-     audio.play();
+      //- }, false);
+      
+      //- audio.onended = () => {
+      //- removeAudio()
+      //- };
+
       setTimeout(function() {
       hideDonation()
       }, 7000);
+
+
       });
+
+
       }
       function showDonation(data) {
       console.log(data)
@@ -55,20 +94,27 @@ html(lang='en', dir='ltr')
       x.style.display = "block";
       document.getElementById("donater-info").innerHTML = donationObj.donater + ' - ' + donationObj.amount;
       document.getElementById("text").innerHTML = donationObj.text;
-      appendAudio();
       }
       function hideDonation() {
       var x = document.getElementById("donation");
       x.style.display = "none";
       }
+      //- function appendAudio(){
+      //- $('#audio-container').append(
+      //- '<audio controls preload="none" id="audio" style="display: none;">'+
+      //- '<source src="https://xdonat.com/donation/tts" type="audio/ogg"/>'+
+      //- '<source src="https://xdonat.com/donation/tts" type="audio/mpeg"/>'+
+      //- '</audio>');
+      //- }
       function appendAudio(){
       $('#audio-container').append(
-      '<audio controls preload="none" id="audio" style="display: none;">'+
-      '<source src="https://xdonat.com/donation/tts" type="audio/ogg"/>'+
-      '<source src="https://xdonat.com/donation/tts" type="audio/mpeg"/>'+
+      '<audio controls id="audio" style="display: none;">'+
+      '<source src="http://localhost:3000/donation/tts" type="audio/ogg"/>'+
+      '<source src="http://localhost:3000/donation/tts" type="audio/mpeg"/>'+
       '</audio>');
       }
       function removeAudio(){
       $('#audio').remove();
       }
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+    script(src='/soundmanager/script/soundmanager2.js')

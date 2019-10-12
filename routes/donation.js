@@ -25,7 +25,7 @@
 
   router.get('/text_donate', (req, res) => {
     res.render('donation/text');
-    // socketLib.textDonate();
+    // socketLib.text_donate();
   });
 
   // НЕ РАБОТАЕТ, НЕТ views
