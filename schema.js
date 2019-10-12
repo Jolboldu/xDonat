@@ -48,6 +48,14 @@ var donateSchema = new Schema({
 		type : Number,
 		required : true
 	},
+	userId: {
+		type: String,
+		required: true,
+	},
+	amount: {
+		type: Number,
+		required: true,
+	}
 	datetime : {
 		type : Date,
 		default: Date.now,

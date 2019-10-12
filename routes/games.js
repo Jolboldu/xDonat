@@ -13,6 +13,7 @@ const authCheck = (req, res, next) => {
 router.get('/slot', authCheck, (req, res) => {
     // res.send(req.user);
     res.render('widgets/game_slot', { data: req.user });
+    // res.send(req.user);
 });
 
 router.get('/wheel_of_fortune', authCheck, (req, res) => {

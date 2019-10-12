@@ -67,6 +67,8 @@ router.post('/yandex/pay', (req, res) => {
         donater: req.body.donater,
         game: req.body.game,
         reciever: req.body.reciever,
+        userId: req.body.userId,
+        amount: req.body.amount,
     }).save((err, data) => {
         if(err)
         {
