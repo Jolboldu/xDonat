@@ -7,6 +7,8 @@ var passport = require('passport');
 var mongoose = require('mongoose')
 var cookieSession = require('cookie-session')
 var cors = require('cors')
+var helmet = require('helmet')
+
 // const textToSpeech = require('@google-cloud/text-to-speech')
 // var fs = require('fs')
 // var util = require('util')
@@ -30,7 +32,7 @@ var app = express();
 
 var donationRouter = require('./routes/donation');
 
-
+app.use(helmet())
 app.use(cors())
 
 mongoose.connect('mongodb://xdevelopers:SpC4GeSNIx8yyIBr@165.22.71.126:27017/xdonat',{ useNewUrlParser: true }, ()=>{
@@ -45,7 +47,13 @@ app.use(express.static('public'));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: [keys.SESSION_SECRET]
+    name: keys.SESSION_NAME,
+    keys: [keys.SESSION_SECRET],
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: 'https://www.xdonat.com/'
+    }
 }));
 // app.use(session({secret: keys.SESSION_SECRET, resave: false, saveUninitialized: false}));
 app.use(passport.initialize());

@@ -46,19 +46,6 @@ function handleRequest(paymentAccepted, req, res, donateData)
             })
         }
     }
-// router.get('/yandex', authCheck, (req, res) => {
-//     models.YandexWallet.drop(function(err, delOK) {
-//         if (err) throw err;
-//         if (delOK) console.log("Collection deleted");
-//         // db.close();
-//       });
-//     res.send("nice");
-//     // models.YandexWallet.find({}, (err, data) => {
-//     //     res.json(data);
-//     // })
-//     console.log('Не палим наши схемы');
-// });
-
 
 
 router.post('/yandex/pay', (req, res) => {    
@@ -95,15 +82,6 @@ router.post('/yandex/requests', (req, res) => {
             
         })
     })    
-});
-
-router.post('/socket', (req, res) => {
-    models.Donate.findOne({id: req.body.label}, (err, data) => {
-        models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
-            console.log(dock);
-            res.send("its ok")//render whatever you want user id is dock.userID
-        })
-    })
 });
 
 
