@@ -77,7 +77,8 @@ html
           input(type='hidden', name='reciever', value=yandex_data.addressOfWallet)
         .form-group
           label(for='exampleInputPassword1') Сумма
-          input.form-control(type='number', name='amount' placeholder='150 рублей')
+          input.form-control(type='number', name='amount', placeholder='150 рублей')
+          input.form-control(type='hidden', name='userId', value=user_data.id)
         button.btn.btn-primary(type='submit') Submit
       hr
       //
