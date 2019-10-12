@@ -22,6 +22,12 @@ router.get('/wheel_of_fortune', authCheck, (req, res) => {
     console.log(err);
 });
 
+router.get('/text_donate', authCheck, (req, res) => {
+    // res.send(req.user);
+    // res.render('widgets/wheel_of_fortune', { data: req.user });
+    console.log(err);
+});
+
 router.post('/socket', (req, res) => {
     models.Donate.findOne({id: req.body.label}, (err, data) => {
         models.YandexWallet.findOne({addressOfWallet: data.reciever}, (err, dock)=> {
