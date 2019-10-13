@@ -149,12 +149,12 @@ div(align='center')
     // Just alert to the user what happened.
     // In a real project probably want to do something more interesting than this with the result.
     if (indicatedSegment.text == 'LOOSE TURN') {
-    alert('Sorry but you loose a turn.');
+    console.log('Sorry but you loose a turn.');
     } else if (indicatedSegment.text == 'BANKRUPT') {
-    alert('Oh no, you have gone BANKRUPT!');
+    console.log('Oh no, you have gone BANKRUPT!');
     } else {
     // indicatedSegment.message это текст который пока надо озвучить
-    alert("You have won " + indicatedSegment.message);
+    console.log("You have won " + indicatedSegment.message);
     }
 
     var txt = {
