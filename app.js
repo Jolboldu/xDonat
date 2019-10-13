@@ -47,8 +47,8 @@ app.use(express.static('public'));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    name: keys.SESSION_NAME,
-    keys: [keys.SESSION_SECRET],
+    name: process.env..SESSION_NAME,
+    keys: [process.env..SESSION_SECRET],
     cookie: {
       secure: true,
       httpOnly: true,
