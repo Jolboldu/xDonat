@@ -6,6 +6,7 @@ var yandex = mongoose.model('yandex', schema.Yandex);
 var donate = mongoose.model('donate', schema.Donate);
 var payment = mongoose.model('payment', schema.Payment);
 var paymentYandex = mongoose.model('paymentYandex', schema.PaymentYandex);
+var errorLog = mongoose.model('errorLog', schema.ErrorLog);
 
 module.exports = {
 	User : user,
@@ -13,4 +14,5 @@ module.exports = {
 	Donate : donate,
 	Payment: payment,
 	PaymentYandex: paymentYandex,
+	ErrorLog: errorLog,
 }

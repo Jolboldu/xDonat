@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
   models.User.find((err,data)=>{
   	res.json(data);
   })
-  console.log('Не палим наши схемы');
 });
 
 module.exports = router;

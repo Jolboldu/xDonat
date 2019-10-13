@@ -125,10 +125,31 @@ var paymentYandexSchema = new Schema({
 	}
 })
 
+var errorLogSchema = new Schema({
+	datetime : {
+		type : Date,
+		default: Date.now,
+		required : true
+	},
+	file : {
+		type : String,
+		required : true
+	},
+	message : {
+		type : String,
+		required : false
+	},
+	error : {
+		type : String,
+		required : true
+	},
+})
+
 module.exports = {
 	User: userSchema,
 	Yandex: yandexSchema,
 	Donate: donateSchema,
 	Payment: paymentSchema,
 	PaymentYandex: paymentYandexSchema,
+	ErrorLog: errorLogSchema,
 }
