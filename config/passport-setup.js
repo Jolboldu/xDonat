@@ -9,7 +9,7 @@ OAuth2Strategy.prototype.userProfile = function(accessToken, done) {
     url: 'https://api.twitch.tv/helix/users',
     method: 'GET',
     headers: {
-      'Client-ID': keys.TWITCH_CLIENT_ID,
+      'Client-ID': process.env.TWITCH_CLIENT_ID,
       'Accept': 'application/vnd.twitchtv.v5+json',
       'Authorization': 'Bearer ' + accessToken
     }
