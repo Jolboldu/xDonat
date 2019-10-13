@@ -47,7 +47,7 @@
   // РАБОТАЕТ
   router.get('/wheel_donate', (req, res) => {
     res.render('donation/wheel_of_fortune');
-    socketLib.text_donate();
+    // socketLib.text_donate();
 
     // setTimeout(function() {
 
@@ -81,7 +81,7 @@
      const [response] = await client.synthesizeSpeech(request);
      // Write the binary audio content to a local file
      const writeFile = util.promisify(fs.writeFile);
-     await writeFile('output.mp3', response.audioContent, 'binary');
+     await writeFile('/public/output.mp3', response.audioContent, 'binary');
 
      console.log('Audio content written to file: output.mp3');
      res.sendStatus(200);
