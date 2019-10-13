@@ -35,7 +35,7 @@ var donationRouter = require('./routes/donation');
 app.use(helmet())
 app.use(cors())
 
-mongoose.connect('mongodb://xdevelopers:SpC4GeSNIx8yyIBr@165.22.71.126:27017/xdonat',{ useNewUrlParser: true }, ()=>{
+mongoose.connect(process.env.MONGO_SETUP,{ useNewUrlParser: true }, ()=>{
   console.log('connected to mongodb');
 });
 
@@ -47,8 +47,8 @@ app.use(express.static('public'));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    name: process.env..SESSION_NAME,
-    keys: [process.env..SESSION_SECRET],
+    name: process.env.SESSION_NAME,
+    keys: [process.env.SESSION_SECRET],
     cookie: {
       secure: true,
       httpOnly: true,
