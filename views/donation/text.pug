@@ -31,24 +31,19 @@ html(lang='en', dir='ltr')
     script(type='text/javascript').
       var socket = io();
       if (socket !== null) {
-      // название рума будет нашим user_id
-      var room = "abc123";
+      // название рума будет нашим user_token
+      var room = "#{user_token}";
       // connection
       socket.on('connect', function() {
-      // сюда заходит
+      
       socket.emit('room', room);
       console.log('connected to ' + room);
       });
 
       // Donation
       socket.on('message', function(data) {
-      
-      //- appendAudio()
-      //- var audio = document.getElementById("audio")
-      //- audio.load();
 
       showDonation(data)
-
 
       soundManager.setup({
           url: '/soundmanager/swf/',
@@ -66,6 +61,8 @@ html(lang='en', dir='ltr')
               // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
           }
       });
+
+
       //- audio.oncanplaythrough = function() {
       //-     //- alert("Can start playing video");
       //-     audio.play();
