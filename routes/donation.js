@@ -23,42 +23,21 @@
 
   });
 
+  // Text donate route
   router.get('/text_donate', (req, res) => {
-    res.render('donation/text');
+    let user_token = req.query.token
+    res.render('donation/text',{user_token: user_token});
     socketLib.text_donate();
   });
 
   // НЕ РАБОТАЕТ, НЕТ views
   router.get('/slot_donate', (req, res) => {
   res.render('donation/slot');
-
-  // setTimeout(function() {
-
-  //   // userid это рум
-  // room = "abc123";
-  // // хочу отправить сообщение в данный рум
-  // // 'hello world' заменю на переменную текста
-  // io.to(room).emit('message', 'hello world')
-
-  // }, 4000);
-
   });
 
-  // РАБОТАЕТ
+  // Wheel donate route
   router.get('/wheel_donate', (req, res) => {
     res.render('donation/wheel_of_fortune');
-    // socketLib.text_donate();
-
-    // setTimeout(function() {
-
-    //   // userid это рум
-    // room = "abc123";
-    // // хочу отправить сообщение в данный рум
-    // // 'hello world' заменю на переменную текста
-    // io.to(room).emit('message')
-
-    // }, 4000);
-
   });
 
   router.post('/ttsc', function(req, res){

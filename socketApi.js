@@ -22,14 +22,11 @@ io.on('connection', (socket) => {
 });
 
 
-// Functions for donations
+// Functions for testing
 socketApi.sendNotification = function() {
     io.sockets.emit('hello', {msg: 'Hello World!'});
 }
 
-socketApi.hello = function() {
-	console.log('hello');
-}
 
 socketApi.text_donate = function() {
 	 var isDonation = true
@@ -39,15 +36,8 @@ socketApi.text_donate = function() {
     // таймАут стоит временно, чтобы проверить работу Сокетов
     setTimeout(function() {     
 
-      // userid это рум
-    room = "abc123";
-    // хочу отправить сообщение в данный рум
-    var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
-
-
-
-    // function to Work with sounds
-      async function main() {
+    // function that synthesize sounds from text
+      async function googleVoice() {
        // Creates a client
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
@@ -72,10 +62,14 @@ socketApi.text_donate = function() {
        console.log('Audio content written to file: output.mp3');
        // res.sendStatus(200);
       }
-      main();
+      // googleVoice();
+    
+      // userid это рум
+      room = "abc123";
+      // хочу отправить сообщение в данный рум
+      var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
-
-      io.to(room).emit('message', data) 
+      io.to(room).emit('message', data)      
 
 
 
