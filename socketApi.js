@@ -57,7 +57,7 @@ socketApi.text_donate = function(data) {
        const writeFile = util.promisify(fs.writeFile);
 
        // сделать path для сервера
-       await writeFile('output.mp3', response.audioContent, 'binary');
+       await writeFile('/public/output.mp3', response.audioContent, 'binary');
 
        console.log('Audio content written to file: output.mp3');
       }
