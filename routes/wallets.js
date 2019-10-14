@@ -48,6 +48,7 @@ function handleRequest( req, res, donateData)
         if(err)
             logger.recordError('wallets.js', 'saving new yandex payment', err);
         else{
+
             var newPayment = models.Payment({   //save as regular payment and linked to yandex payment
                 typeOfPayment : "yandex", 
                 paymentId : data.id,
@@ -104,6 +105,7 @@ router.post('/yandex/requests', (req, res) => {
                 else{
                     var wholeInfo = req.body.notification_type + "&" + req.body.operation_id + "&" + req.body.amount + "&" + req.body.currency + "&" + req.body.datetime + "&" + req.body.sender + "&" + req.body.codepro + "&" + wallet.secretOfWallet + "&" + req.body.label;
                     if(req.body.sha1_hash == sha1(wholeInfo)){
+                        res.sendStatus(200);
                         handleRequest(req, res, data)       
                     }else{
                         logger.recordError('wallets.js', 'failure attempt of faking payment or no yandex secret', error);
