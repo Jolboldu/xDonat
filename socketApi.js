@@ -2,6 +2,7 @@ var socket_io = require('socket.io');
 const textToSpeech = require('@google-cloud/text-to-speech')
 var fs = require('fs')
 var util = require('util')
+var path = require('path')
 
 var io = socket_io();
 var socketApi = {};
@@ -41,8 +42,8 @@ socketApi.text_donate = function(data) {
        // Creates a client
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
-       // const text = req.body.text
-       const text = 'Арбуз'
+       // const text is got from data
+       const text = data.text
        //Construct the request
        const request = {
          input: {text: text},
@@ -56,19 +57,27 @@ socketApi.text_donate = function(data) {
        // Write the binary audio content to a local file
        const writeFile = util.promisify(fs.writeFile);
 
+       var soundPath = __dirname
        // сделать path для сервера
-       await writeFile('/xdonat/public/output.mp3', response.audioContent, 'binary');
+       await writeFile(express.static(__dirname)+'/output.mp3', response.audioContent, 'binary');
 
        console.log('Audio content written to file: output.mp3');
       }
-      // googleVoice();
+      googleVoice();
     
       // usertoken это рум
-      room = "abc123";
+      // room = "abc123";
+      room = data.userId
       // хочу отправить сообщение в данный рум
+      // var obj = {
+      //   donater: "Akira",
+      //   text: "Привет как дела",
+      //   amount:
+      // }
+    
       // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
-
-      io.to(room).emit('message', data)      
+      var dataK = JSON.stringify(data);
+      io.to(room).emit('message', dataK)      
 
 
 
@@ -92,8 +101,8 @@ socketApi.wheel_donate = function(data) {
        // Creates a client
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
-       // const text = req.body.text
-       const text = 'Арбуз'
+       // const text is got from data
+       const text = data.text
        //Construct the request
        const request = {
          input: {text: text},
@@ -108,15 +117,15 @@ socketApi.wheel_donate = function(data) {
        const writeFile = util.promisify(fs.writeFile);
 
        // сделать path для сервера
-       await writeFile('/xdonat/public/output.mp3', response.audioContent, 'binary');
+       await writeFile('output.mp3', response.audioContent, 'binary');
 
        console.log('Audio content written to file: output.mp3');
       }
 
-      // googleVoice();
+      googleVoice();
     
       // usertoken это рум
-      room = "abc123";
+      room = data.userId;
       // хочу отправить сообщение в данный рум
       // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 

@@ -16,6 +16,22 @@ const authCheck = (req, res, next) => {
 
 function handleRequest( req, res, donateData)
 {
+    // При успешной оплате сделаю условия и он должен стригерить определенную функцию
+
+    if(donateData.game ==  "text_donate")
+    {
+        socketLib.text_donate(donateData)
+    }
+    else if(donateData.game == "wheel_donate")
+    {
+        socketLib.wheel_donate(donateData)
+    }
+    else if(donateData.game == "slot_donate")
+    {
+        socketLib.slot_donate(donateData)
+    }
+    // socketLib.text_donate(data); //render message or game
+
     var newPaymentYandex = models.PaymentYandex({   //save yandex payment
         notification_type : req.body.notification_type,
         amount : req.body.amount,
@@ -39,10 +55,6 @@ function handleRequest( req, res, donateData)
             }).save((error)=> {
                 if(error)
                     logger.recordError('wallets.js', 'saving new payment', error);
-                else{
-                    // При успешной оплате сделаю условия и он должен стригерить определенную функцию
-                    // socketLib.text_donate(data); //render message or game
-                }
             })
         }
     })
