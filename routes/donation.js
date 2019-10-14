@@ -25,11 +25,11 @@
 
   // Text donate route
   router.get('/text_donate', (req, res) => {
-    var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
+    // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
     let user_token = req.query.token
     res.render('donation/text', {user_token: user_token});
-    socketLib.text_donate(data);
+    // socketLib.text_donate(data);
   });
 
   // НЕ РАБОТАЕТ, НЕТ views
@@ -40,11 +40,11 @@
 
   // Wheel donate route
   router.get('/wheel_donate', (req, res) => {
-    var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
+    // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
     let user_token = req.query.token
     res.render('donation/wheel_of_fortune', {user_token: user_token});
-    socketLib.wheel_donate(data);
+    // socketLib.wheel_donate(data);
   });
 
   router.post('/ttsc', function(req, res){

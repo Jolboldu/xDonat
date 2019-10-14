@@ -20,6 +20,7 @@ div(align='center')
           br
           | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
       td.the_wheel(width='438' height='582' align='center' valign='center')
+        #audio-container(style='display: none;')
         #wheel(style='display: none')
           canvas#canvas(width='434' height='434')
             p(style='{color: white}' align='center')  &Kcy;&acy;&zhcy;&iecy;&tcy;&scy;&yacy; &vcy;&acy;&shcy; &bcy;&rcy;&acy;&ucy;&zcy;&iecy;&rcy; &ncy;&iecy; &pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&icy;&vcy;&acy;&tcy;&iecy; canvas
@@ -35,7 +36,7 @@ div(align='center')
     'textFontSize': 24,         // Set default font size for the segments.
     'textOrientation': 'vertical', // Make text vertial so goes down from the outside of wheel.
     'textAlignment': 'outer',    // Align text to outside of wheel.
-    'numSegments': 24,         // Specify number of segments.
+    'numSegments': 10,         // Specify number of segments.
     'segments':             // Define segments including colour and text.
     [                               // font size and test colour overridden on backrupt segments.
     { 'fillStyle': '#ee1c24', 'text': '30', 'message': 'алло' },
@@ -48,20 +49,20 @@ div(align='center')
     { 'fillStyle': '#fff200', 'text': '60', 'message': 'алло' },
     { 'fillStyle': '#f6989d', 'text': '70', 'message': 'алло' },
     { 'fillStyle': '#ee1c24', 'text': '35', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '50', 'message': 'алло' },
-    { 'fillStyle': '#f26522', 'text': '80', 'message': 'алло' },
-    { 'fillStyle': '#a186be', 'text': '30', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '40', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '65', 'message': 'алло' },
-    { 'fillStyle': '#ee1c24', 'text': '100', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '50', 'message': 'алло' },
-    { 'fillStyle': '#f26522', 'text': '40', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '90', 'message': 'алло' },
-    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
-    { 'fillStyle': '#a186be', 'text': '60', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '70', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '80', 'message': 'алло' },
-    { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'textFontSize': 12 }
+    //- { 'fillStyle': '#3cb878', 'text': '50', 'message': 'алло' },
+    //- { 'fillStyle': '#f26522', 'text': '80', 'message': 'алло' },
+    //- { 'fillStyle': '#a186be', 'text': '30', 'message': 'алло' },
+    //- { 'fillStyle': '#fff200', 'text': '40', 'message': 'алло' },
+    //- { 'fillStyle': '#00aef0', 'text': '65', 'message': 'алло' },
+    //- { 'fillStyle': '#ee1c24', 'text': '100', 'message': 'алло' },
+    //- { 'fillStyle': '#f6989d', 'text': '50', 'message': 'алло' },
+    //- { 'fillStyle': '#f26522', 'text': '40', 'message': 'алло' },
+    //- { 'fillStyle': '#3cb878', 'text': '90', 'message': 'алло' },
+    //- { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
+    //- { 'fillStyle': '#a186be', 'text': '60', 'message': 'алло' },
+    //- { 'fillStyle': '#fff200', 'text': '70', 'message': 'алло' },
+    //- { 'fillStyle': '#00aef0', 'text': '80', 'message': 'алло' },
+    //- { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'textFontSize': 12 }
     ],
     'animation':           // Specify the animation to use.
     {
@@ -88,17 +89,8 @@ div(align='center')
     // Stop and rewind the sound if it already happens to be playing.
     audio.pause();
     audio.currentTime = 0;
-    // Play the sound.
-    if(audio.onload == true)
-    {
     //- не видит музыку в сурсах
-        audio.play();
-    }
-    else {
-
-    console.log('not loaded')
-    }
-
+    audio.play();
     }
     // Vars used by the code in this page to do power controls.
     let wheelPower = 0;
@@ -208,7 +200,7 @@ div(align='center')
     if(socket !== null)
     {
     // название рума будет нашим user_id
-    var room = "abc123";
+    var room = "#{user_token}";
     // connection
     socket.on('connect', function () {
     // сюда заходит

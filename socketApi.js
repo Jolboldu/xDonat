@@ -41,8 +41,8 @@ socketApi.text_donate = function(data) {
        // Creates a client
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
-       // const text = req.body.text
-       const text = 'Арбуз'
+       // const text is got from data
+       const text = data.text
        //Construct the request
        const request = {
          input: {text: text},
@@ -61,10 +61,11 @@ socketApi.text_donate = function(data) {
 
        console.log('Audio content written to file: output.mp3');
       }
-      // googleVoice();
+      googleVoice();
     
       // usertoken это рум
-      room = "abc123";
+      // room = "abc123";
+      room = data.userId
       // хочу отправить сообщение в данный рум
       // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
@@ -92,8 +93,8 @@ socketApi.wheel_donate = function(data) {
        // Creates a client
        const client = new textToSpeech.TextToSpeechClient();
        // The text to synthesize
-       // const text = req.body.text
-       const text = 'Арбуз'
+       // const text is got from data
+       const text = data.text
        //Construct the request
        const request = {
          input: {text: text},
@@ -113,10 +114,10 @@ socketApi.wheel_donate = function(data) {
        console.log('Audio content written to file: output.mp3');
       }
 
-      // googleVoice();
+      googleVoice();
     
       // usertoken это рум
-      room = "abc123";
+      room = data.userId;
       // хочу отправить сообщение в данный рум
       // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
