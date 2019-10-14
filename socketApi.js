@@ -2,6 +2,7 @@ var socket_io = require('socket.io');
 const textToSpeech = require('@google-cloud/text-to-speech')
 var fs = require('fs')
 var util = require('util')
+var path = require('path')
 
 var io = socket_io();
 var socketApi = {};
@@ -56,8 +57,9 @@ socketApi.text_donate = function(data) {
        // Write the binary audio content to a local file
        const writeFile = util.promisify(fs.writeFile);
 
+       var soundPath = __dirname
        // сделать path для сервера
-       await writeFile('/public/output.mp3', response.audioContent, 'binary');
+       await writeFile(express.static(__dirname)+'/output.mp3', response.audioContent, 'binary');
 
        console.log('Audio content written to file: output.mp3');
       }
