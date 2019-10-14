@@ -67,9 +67,9 @@ socketApi.text_donate = function(data) {
       // room = "abc123";
       room = data.userId
       // хочу отправить сообщение в данный рум
-      // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
+      var dataK = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
 
-      io.to(room).emit('message', data)      
+      io.to(room).emit('message', dataK)      
 
 
 
