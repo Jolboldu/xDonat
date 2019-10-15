@@ -44,7 +44,7 @@ socketApi.text_donate = function(data) {
        // The text to synthesize
        // const text is got from data
        // const text = data.text
-       const text = 'Привет'
+       const text = data.text
        //Construct the request
        const request = {
          input: {text: text},
@@ -63,7 +63,7 @@ socketApi.text_donate = function(data) {
        // сделать path для сервера
        await writeFile(soundPath + '/public/sounds/' + soundId + '.mp3', response.audioContent, 'binary');
 
-       console.log('Audio content written to file: output.mp3');
+       console.log('Audio content written to file: of the userId');
        // usertoken это рум
        // room = "abc123";
        room = data.userId
