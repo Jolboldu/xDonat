@@ -13,9 +13,13 @@ const authCheck = (req, res, next) => {
 /* GET users listing. */
 
 router.get('/full', authCheck, function(req, res, next) {
-	models.Donate.find({userId: req.user.id}, (err, data) => {
+	var query = models.Donate.find({userId: req.user.id}, (err, data) => {
+		// models.PaymentYandex.find(donateId: data.)
+	});
+	
+	query.then(data){
 		res.send(data);
-	})
+	}
 });
 
 router.get('/', function(req, res, next) {
