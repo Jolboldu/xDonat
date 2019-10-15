@@ -44,13 +44,19 @@ html(lang='en', dir='ltr')
       socket.on('message', function(data) {
 
       showDonation(data)
+      soundSetup()
+
+
+      function soundSetup(){
+
+      var soundUrl = "/sounds/" + "#{user_token}.mp3"
 
       soundManager.setup({
           url: '/soundmanager/swf/',
           onready: function() {
           var mySound = soundManager.createSound({
           id: 'aSound',
-          url: '/output.mp3'
+          url: soundUrl
           });
           mySound.play();
           },
@@ -60,23 +66,11 @@ html(lang='en', dir='ltr')
           }
       });
 
-
-      //- audio.oncanplaythrough = function() {
-      //-     //- alert("Can start playing video");
-      //-     audio.play();
-      //- };
-      //- audio.addEventListener('oncanplay', function() { 
-      //-     audio.play();
-      //- }, false);
-      
-      //- audio.onended = () => {
-      //- removeAudio()
-      //- };
+      }
 
       setTimeout(function() {
       hideDonation()
       }, 7000);
-
 
       });
 

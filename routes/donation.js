@@ -25,7 +25,7 @@
 
   // Text donate route
   router.get('/text_donate', (req, res) => {
-    // var data = '{"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}'
+    // var data = {"donater": "akunMata", "text": "привет Аниме, как бы ты оценил новую игру ниба", "amount": 149, "userId": "abc123"}
 
     let user_token = req.query.token
     res.render('donation/text', {user_token: user_token});
