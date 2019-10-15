@@ -17,9 +17,9 @@ router.get('/full', authCheck, function(req, res, next) {
 		// models.PaymentYandex.find(donateId: data.)
 	});
 	
-	query.then(data){
+	query.then((data)=>{
 		res.send(data);
-	}
+	});
 });
 
 router.get('/', function(req, res, next) {
