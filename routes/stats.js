@@ -32,19 +32,6 @@ router.get('/full', authCheck, function(req, res, next) {
 		})
 	});
 
-	// var query = models.Donate.find({userId: req.user.id}, (err, data) => {
-	// 	// models.PaymentYandex.find(donateId: data.)
-	// });
-	
-	// query.then((data)=>{
-	// 	res.send(data);
-	// });
-});
-
-router.get('/', authCheck, function(req, res, next) {
-	models.Donate.find({userId: req.user.id}, (err, data) => {
-		res.json(data);
-	});
 });
 
 module.exports = router;
