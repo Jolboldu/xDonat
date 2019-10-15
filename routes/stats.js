@@ -28,7 +28,7 @@ router.get('/full', authCheck, function(req, res, next) {
 					}
 				}
 			}
-			res.send(stats);
+			res.json(stats);
 		})
 	});
 
@@ -41,8 +41,10 @@ router.get('/full', authCheck, function(req, res, next) {
 	// });
 });
 
-router.get('/', function(req, res, next) {
-	res.send("stats");
+router.get('/', authCheck, function(req, res, next) {
+	models.Donate.find({userId: req.user.id}, (err, data) => {
+		res.json(data);
+	});
 });
 
 module.exports = router;
