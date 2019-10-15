@@ -40,11 +40,11 @@
 
   // Wheel donate route
   router.get('/wheel_donate', (req, res) => {
-    var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149, "userId": "5d874102e2db820e5055341a"}
+    // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149, "userId": "5d874102e2db820e5055341a"}
 
     let user_token = req.query.token
     res.render('donation/wheel_of_fortune', {user_token: user_token});
-    socketLib.wheel_donate(data);
+    // socketLib.wheel_donate(data);
   });
 
   router.post('/ttsc', function(req, res){
