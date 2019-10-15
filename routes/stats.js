@@ -12,12 +12,15 @@ const authCheck = (req, res, next) => {
 
 /* GET users listing. */
 
-router.get('/full', function(req, res, next) {
+router.get('/full', authCheck, function(req, res, next) {
 	models.Donate.find({userId: req.user.id}, (err, data) => {
 		res.send(data);
 	})
 });
 
+router.get('/', function(req, res, next) {
+	res.send("stats");
+});
 
 module.exports = router;
 

@@ -20,6 +20,7 @@ var dashboardRouter = require('./routes/dashboard');
 var userRouter = require('./routes/users');
 var WalletRouter = require('./routes/wallets');
 var gameRouter = require('./routes/games');
+var statsRouter = require('./routes/stats');
 var streamerRouter = require('./routes/streamer');
 // var profileRouter = require('./routes/profile');
 
@@ -74,6 +75,7 @@ app.use('/wallets', WalletRouter);
 app.use('/games', gameRouter);
 app.use('/streamer', streamerRouter);
 app.use('/donation', donationRouter);
+app.use('/stats', statsRouter);
 // app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
