@@ -61,7 +61,8 @@ head
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
                 h4 Скопируйте эту ссылку и вставьте в программу для вещания стримов
-                input#myInput(type='text', value='https://www.xdonat.com/donation/slot_donate?token='data.id)
+                var userId = data._id
+                input#myInput(type='text', value='https://www.xdonat.com/donation/slot_donate?token=' + data.id)
                 hr
                 button(type='button' onclick='copyText()', onmouseout='copyTextAnimation()' class='btn') СКОПИРОВАТЬ ССЫЛКУ
 

@@ -20,6 +20,7 @@ html(lang='en', dir='ltr')
   body
     #donation.container(style='display:none;')
       h1#donater-info
+      h2#amount
       h2#text
     //- #audio-container(style='display: none;')
       //- audio#audio(controls='', style='display: none;')
@@ -83,7 +84,8 @@ html(lang='en', dir='ltr')
       var donationObj = JSON.parse(data)
       var x = document.getElementById("donation");
       x.style.display = "block";
-      document.getElementById("donater-info").innerHTML = donationObj.donater + ' - ' + donationObj.amount;
+      document.getElementById("donater-info").innerHTML = donationObj.donater;
+      document.getElementById("amount").innerHTML = donationObj.amount;
       document.getElementById("text").innerHTML = donationObj.text;
       }
 

@@ -68,10 +68,12 @@
      // Write the binary audio content to a local file
      const writeFile = util.promisify(fs.writeFile);
 
-     // сделать path для сервера
-     await writeFile('/xdonat/public/output.mp3', response.audioContent, 'binary');
+    let soundPath = appDir;
+    let soundId = req.body.token
+       // сделать path для сервера
+    await writeFile(soundPath + '/public/sounds/' + soundId + '.mp3', response.audioContent, 'binary');
 
-     console.log('Audio content written to file: output.mp3');
+     console.log('Audio content written to file: of the userId');
      res.sendStatus(200);
    }
    main();

@@ -39,16 +39,17 @@ div(align='center')
     'numSegments': 10,         // Specify number of segments.
     'segments':             // Define segments including colour and text.
     [                               // font size and test colour overridden on backrupt segments.
-    { 'fillStyle': '#ee1c24', 'text': '30', 'message': 'алло' },
-    { 'fillStyle': '#3cb878', 'text': '45', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '60', 'message': 'алло' },
-    { 'fillStyle': '#00aef0', 'text': '75', 'message': 'алло' },
+    { 'fillStyle': '#ee1c24', 'text': '30', 'message': 'Покажи плиз сиськи' },
+    { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'message': 'К успеху шёл, не фортануло', 'textFontSize': 12 },
+    { 'fillStyle': '#f6989d', 'text': '60', 'message': 'Сегодня видел как ты кекал на улице' },
+    { 'fillStyle': '#00aef0', 'text': '75', 'message': 'З' },
     { 'fillStyle': '#f26522', 'text': '50', 'message': 'алло' },
-    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
-    { 'fillStyle': '#e70697', 'text': '30', 'message': 'алло' },
-    { 'fillStyle': '#fff200', 'text': '60', 'message': 'алло' },
-    { 'fillStyle': '#f6989d', 'text': '70', 'message': 'алло' },
-    { 'fillStyle': '#ee1c24', 'text': '35', 'message': 'алло' },
+    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'message': 'Денег нет, но вы держитесь', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
+    { 'fillStyle': '#e70697', 'text': '30', 'message': 'Не хочешь ни с кем делить мужчину - НЕ ПИЛИ его' },
+    { 'fillStyle': '#fff200', 'text': '60', 'message': 'Сколько стоит приват? а а а' },
+    { 'fillStyle': '#f6989d', 'text': '70', 'message': 'Что думаешь по поводу' },
+    { 'fillStyle': '#ee1c24', 'text': '35', 'message': 'Одни верят в Бога, Другие в деньги а ты?' },
+
     //- { 'fillStyle': '#3cb878', 'text': '50', 'message': 'алло' },
     //- { 'fillStyle': '#f26522', 'text': '80', 'message': 'алло' },
     //- { 'fillStyle': '#a186be', 'text': '30', 'message': 'алло' },
@@ -150,7 +151,8 @@ div(align='center')
     }
 
     var txt = {
-        text: indicatedSegment.message
+        text: indicatedSegment.message,
+        token: "#{user_token}"
     }
 
     $.ajax({
@@ -187,8 +189,8 @@ div(align='center')
     function appendAudio(){
       $('#audio-container').append(
         '<audio controls preload="none" id="audio" style="display: none;">'+
-            '<source src="https://xdonat.com/donation/tts" type="audio/ogg"/>'+
-            '<source src="https://xdonat.com/donation/tts" type="audio/mpeg"/>'+
+            '<source src="/sounds/#{user_token}.mp3" type="audio/ogg"/>'+
+            '<source src="/sounds/#{user_token}.mp3" type="audio/mpeg"/>'+
           '</audio>');
     }
 
