@@ -16,14 +16,14 @@ router.get('/', authCheck, (req, res) => {
 });
 
 router.get('/payment_settings', authCheck, (req, res) => {
-    models.YandexWallet.find({ userId: req.user.id }, (err, data) => {
+    models.YandexWallet.findOne({ userId: req.user.id }, (err, data) => {
         if (err)
         {
             logger.recordError('dashboard.js', 'searching for payment_settings', err);
             res.render('error');
         }
         else{
-            if (data.length) {
+            if (data) {
                 //credentials has been written
                 res.render('payment_settings', { data: req.user, yandexData: data});
             }
@@ -43,12 +43,12 @@ router.post('/payment_settings', authCheck, (req, res) => {
     validator.trim(req.body.email);
     validator.trim(req.body.secret);
 
-    models.YandexWallet.find({ userId: req.user.id }, (err, data) => {
+    models.YandexWallet.findOne({ userId: req.user.id }, (err, data) => {
         if (err)
             logger.recordError('dashboard.js', 'searching for existing yandex wallet', err);
         else{
             //check if already exists wallet yandex
-            if (data.length == 0){ 
+            if (!data){ 
                 
                 //check if data is valid
                 if( req.body.address.length == 15 && validator.isEmail(req.body.email) &&  req.body.secret.length == 24) {

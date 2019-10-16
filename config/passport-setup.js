@@ -28,9 +28,9 @@ OAuth2Strategy.prototype.userProfile = function(accessToken, done) {
 passport.use('twitch', new OAuth2Strategy({
     authorizationURL: 'https://id.twitch.tv/oauth2/authorize',
     tokenURL: 'https://id.twitch.tv/oauth2/token',
-    clientID: keys.TWITCH_CLIENT_ID,
-    clientSecret: keys.TWITCH_SECRET,
-    callbackURL: keys.CALLBACK_URL,
+    clientID: process.env.TWITCH_CLIENT_ID,
+    clientSecret: process.env.TWITCH_SECRET,
+    callbackURL: process.env.CALLBACK_URL,
     state: true,
   },
   function(accessToken, refreshToken, profile, done) {

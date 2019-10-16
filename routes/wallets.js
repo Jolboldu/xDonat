@@ -105,6 +105,7 @@ router.post('/yandex/requests', (req, res) => {
                 else{
                     var wholeInfo = req.body.notification_type + "&" + req.body.operation_id + "&" + req.body.amount + "&" + req.body.currency + "&" + req.body.datetime + "&" + req.body.sender + "&" + req.body.codepro + "&" + wallet.secretOfWallet + "&" + req.body.label;
                     if(req.body.sha1_hash == sha1(wholeInfo)){
+                        //check if codepro is true
                         res.sendStatus(200);
                         handleRequest(req, res, data)       
                     }else{

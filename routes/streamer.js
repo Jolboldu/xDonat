@@ -21,14 +21,14 @@ router.get('/:username', function(req, res, next) {
                         res.render('error');
                     }else{
 
-                        if (user_data) {
+                        if (yandex_data) {
                             res.render('streamer', { yandex_data: yandex_data, user_data: user_data});
                         }
                         else
                         {
                             // Have to raise ERROR 404, for now just rendering with messages
                             res.render('error');
-                        }
+			}
                     }
                 });
             }
