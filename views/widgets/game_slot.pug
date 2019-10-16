@@ -60,6 +60,13 @@ head
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
+              input#myInput(type='text', value='https://www.xdonat.com/donation/slot?token=#{data._id}')
+              .tooltip
+                button(onclick='copyText()', onmouseout='copyTextAnimation()')
+                  span#myTooltip.tooltiptext Скопировать ссылку
+                  |   СКОПИРОВАТЬ
+
+
               
     // ==============================================================
     // footer
@@ -94,4 +101,18 @@ script(src='/dashboard/assets/vendor/charts/morris-bundle/raphael.min.js')
 script(src='/dashboard/assets/vendor/charts/c3charts/c3.min.js')
 script(src='/dashboard/assets/vendor/charts/c3charts/d3-5.4.0.min.js')
 script(src='/dashboard/assets/vendor/charts/c3charts/C3chartjs.js')
+script.
+    function copyText() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied: " + copyText.value;
+    }
+    function copyTextAnimation() {
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Скопировать ссылку";
+    }
+
 //- script(src='assets/libs/js//dashboard-ecommerce.js')
