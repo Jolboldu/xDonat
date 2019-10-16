@@ -60,11 +60,9 @@ head
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-              input#myInput(type='text', value='https://www.xdonat.com/donation/slot?token=#{data._id}')
-              .tooltip
-                button(onclick='copyText()', onmouseout='copyTextAnimation()')
-                  span#myTooltip.tooltiptext Скопировать ссылку
-                  |   СКОПИРОВАТЬ
+                input#myInput(type='text', value='https://www.xdonat.com/donation/slot_donate?token='#{data._id})
+                hr
+                button(type='button' onclick='copyText()', onmouseout='copyTextAnimation()' class='btn') СКОПИРОВАТЬ ССЫЛКУ
 
 
               
@@ -109,10 +107,6 @@ script.
     document.execCommand("copy");
     var tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Copied: " + copyText.value;
-    }
-    function copyTextAnimation() {
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Скопировать ссылку";
     }
 
 //- script(src='assets/libs/js//dashboard-ecommerce.js')
