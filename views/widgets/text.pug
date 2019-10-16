@@ -60,7 +60,8 @@ head
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-                input#myInput(type='text', value='https://www.xdonat.com/donation/text_donate?token='#{data._id})
+                h4 Скопируйте эту ссылку и вставьте в программу для вещания стримов
+                input#myInput(type='text', value='https://www.xdonat.com/donation/text_donate?token='data.id)
                 hr
                 button(type='button' onclick='copyText()', onmouseout='copyTextAnimation()' class='btn') СКОПИРОВАТЬ ССЫЛКУ
 
