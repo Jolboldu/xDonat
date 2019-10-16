@@ -19,10 +19,8 @@ var authRouter = require('./routes/auth-routes');
 var dashboardRouter = require('./routes/dashboard');
 var userRouter = require('./routes/users');
 var WalletRouter = require('./routes/wallets');
-<<<<<<< HEAD
 var widgetsRouter = require('./routes/widgets');
 var statsRouter = require('./routes/stats');
->>>>>>> 436307bfefdd35cdc09e1d1aa8cb74b808f4b597
 var streamerRouter = require('./routes/streamer');
 // var profileRouter = require('./routes/profile');
 
