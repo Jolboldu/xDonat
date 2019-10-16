@@ -70,7 +70,7 @@ socketApi.text_donate = function(data) {
     
        // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
        var dataK = JSON.stringify(data);
-       io.to(room).emit('message', dataK)
+       io.to(room).emit('text', dataK)
       }
       googleVoice();
     
@@ -132,7 +132,7 @@ socketApi.wheel_donate = function(data) {
     
        // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
        var dataK = JSON.stringify(data);
-       io.to(room).emit('message', dataK)
+       io.to(room).emit('wheel', dataK)
 
 
 
