@@ -22,7 +22,7 @@ router.get('/wheel_of_fortune', authCheck, (req, res) => {
 
 router.get('/text_donate', authCheck, (req, res) => {
     // res.send(req.user);
-    // res.render('widgets/wheel_of_fortune', { data: req.user });
+    res.render('widgets/text', { data: req.user });
 });
 
 

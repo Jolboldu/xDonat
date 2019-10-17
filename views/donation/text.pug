@@ -4,28 +4,61 @@ html(lang='en', dir='ltr')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(href='https://fonts.googleapis.com/css?family=EB+Garamond&display=swap', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Righteous', rel='stylesheet')
     title Text Donation
     style(media='screen').
-      .container {
-      text-align: center;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: 'EB Garamond', serif;
+      *, *:before, *:after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
       }
       h1 {
-      color: #0abde3;
-      }
+        display: inline-block;
+        color: #0abde3;
+        font-family: 'Righteous', serif;
+        font-size: 8em; 
+        text-shadow: .03em .03em 0 hsla(230,40%,50%,1);
+        }
+        h1:after {
+          content: attr(data-shadow);
+          position: absolute;
+          top: .06em; left: .06em;
+          z-index: -1;
+          text-shadow: none;
+          background-image:
+            linear-gradient(
+              45deg,
+              transparent 45%,
+              hsla(48,20%,90%,1) 45%,
+              hsla(48,20%,90%,1) 55%,
+              transparent 0
+              );
+          background-size: .05em .05em;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        
+          animation: shad-anim 15s linear infinite;
+          }
+
+      @keyframes shad-anim {
+        0% {background-position: 0 0}
+        0% {background-position: 100% -100%}
+        }
+        .container {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'EB Garamond', serif;
+        }
+
     script(src='/socket.io/socket.io.js')
   body
     #donation.container(style='display:none;')
       h1#donater-info
       h2#amount
       h2#text
-    //- #audio-container(style='display: none;')
-      //- audio#audio(controls='', style='display: none;')
-      //-   source(src='http://localhost:3000/donation/tts', type='audio/ogg')
-      //-   source(src='http://localhost:3000/donation/tts', type='audio/mpeg')
 
 
 
@@ -64,7 +97,6 @@ html(lang='en', dir='ltr')
           },
           ontimeout: function() {
               console.log('Could not load file')
-              // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
           }
       });
 
@@ -85,7 +117,7 @@ html(lang='en', dir='ltr')
       var x = document.getElementById("donation");
       x.style.display = "block";
       document.getElementById("donater-info").innerHTML = donationObj.donater;
-      document.getElementById("amount").innerHTML = donationObj.amount;
+      document.getElementById("amount").innerHTML = donationObj.amount + ' рублей';
       document.getElementById("text").innerHTML = donationObj.text;
       }
 

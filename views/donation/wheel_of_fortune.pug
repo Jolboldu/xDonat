@@ -1,8 +1,8 @@
 head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Wheel of Fortune
-  link(rel='stylesheet' href='/donation/text/main.css' type='text/css')
-  script(type='text/javascript' src='/donation/text/Winwheel.js')
+  link(rel='stylesheet' href='/donation/wheel_donate/main.css' type='text/css')
+  script(type='text/javascript' src='/donation/wheel_donate/Winwheel.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js')
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js')
 script(src='/socket.io/socket.io.js')
@@ -12,7 +12,7 @@ div(align='center')
     tr
       td
         .power_controls(style='display: none')
-          img#spin_button(src='/donation/text/spin_off.png' alt='Spin' onclick='powerSelected(2), startSpin(), myFunction();')
+          img#spin_button(src='/donation/wheel_donate/spin_off.png' alt='Spin' onclick='powerSelected(2), startSpin(), myFunction();')
           br
           br
           a(href='#' onclick='resetWheel(); return false;')
@@ -82,7 +82,7 @@ div(align='center')
     }
     });
     // Loads the tick audio sound in to an audio object.
-    let audio = new Audio('/donation/text/music.mp3');
+    let audio = new Audio('/donation/wheel_donate/music.mp3');
     // This function is called when the sound is to be played.
 
 
@@ -90,7 +90,6 @@ div(align='center')
     // Stop and rewind the sound if it already happens to be playing.
     audio.pause();
     audio.currentTime = 0;
-    //- не видит музыку в сурсах
     audio.play();
     }
     // Vars used by the code in this page to do power controls.
@@ -113,7 +112,7 @@ div(align='center')
     theWheel.animation.spins = 10;
     }
     // Disable the spin button so can't click again while wheel is spinning.
-    document.getElementById('spin_button').src = "/donation/text/spin_off.png";
+    document.getElementById('spin_button').src = "/donation/wheel_donate/spin_off.png";
     document.getElementById('spin_button').className = "";
     // Begin the spin animation by calling startAnimation on the wheel object.
     theWheel.startAnimation();
@@ -138,7 +137,7 @@ div(align='center')
     // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
     // -------------------------------------------------------
     function alertPrize(indicatedSegment) {
-    //- Озвучка текста
+
     // Just alert to the user what happened.
     // In a real project probably want to do something more interesting than this with the result.
     if (indicatedSegment.text == 'LOOSE TURN') {
@@ -201,11 +200,10 @@ div(align='center')
     var socket = io();
     if(socket !== null)
     {
-    // название рума будет нашим user_id
     var room = "#{user_token}";
     // connection
     socket.on('connect', function () {
-    // сюда заходит
+
     socket.emit('room', room);
     console.log('connected to ' + room);
     });

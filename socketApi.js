@@ -66,15 +66,15 @@ socketApi.text_donate = function(data) {
        console.log('Audio content written to file: of the userId');
        // usertoken это рум
        // room = "abc123";
-       room = data.userId
-    
-       // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
-       var dataK = JSON.stringify(data);
-       io.to(room).emit('text', dataK)
+
       }
-      googleVoice();
+      // googleVoice();
     
-      
+      room = data.userId
+    
+      // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
+      var dataK = JSON.stringify(data);
+      io.to(room).emit('text', dataK)
 
 
 

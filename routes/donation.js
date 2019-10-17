@@ -25,11 +25,11 @@
 
   // Text donate route
   router.get('/text_donate', (req, res) => {
-    // var data = {"donater": "akunMata", "text": "привет Аниме, как бы ты оценил новую игру ниба", "amount": 149, "userId": "abc123"}
+    var data = {"donater": "akunMata", "text": "привет Аниме, как бы ты оценил новую игру ниба", "amount": 149, "userId": "abc123"}
 
     let user_token = req.query.token
     res.render('donation/text', {user_token: user_token});
-    // socketLib.text_donate(data);
+    socketLib.text_donate(data);
   });
 
   // НЕ РАБОТАЕТ, НЕТ views
