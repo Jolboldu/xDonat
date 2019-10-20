@@ -1,3 +1,108 @@
 doctype html
-html(lang='en', dir='ltr')
-  head
+head
+  meta(charset='UTF-8')
+  title jQuery Slot Machine
+  link(rel='stylesheet' href='/donation/slot_donate/style.css')
+  title Slots
+  style(type='text/css').
+    .center {
+    margin: auto;
+    width: 50%;
+    border-width: 2px 8px 4px 8px;
+    border-color: black;
+    padding: 10px;
+    }
+.machine
+  #machine1.optionContainer
+    span.option.center(style='border: 5px')
+      span Подятнись
+.row
+  .mashupButton
+    button#randomizeButton.button Go
+// </div>
+// </div>
+// partial
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1411288/jquery.slotmachine.min.js')
+script(src='/socket.io/socket.io.js')
+script(type='text/javascript').
+
+  var socket = io();
+  if (socket !== null) {
+  
+  var room = "#{user_token}";
+
+  // Connection
+  socket.on('connect', function() {
+    socket.emit('room', room);
+    console.log('connected to ' + room);
+  });
+
+  // Donation
+  socket.on('slot', function(data) {
+
+  showDonation(data)
+  soundSetup()
+
+
+  function soundSetup(){
+
+  var soundUrl = "/sounds/" + "#{user_token}.mp3"
+  console.log(soundUrl)
+
+  soundManager.setup({
+      url: '/soundmanager/swf/',
+      onready: function() {
+      var mySound = soundManager.createSound({
+      id: 'aSound',
+      url: soundUrl
+      });
+      mySound.play();
+      },
+      ontimeout: function() {
+          console.log('Could not load file')
+      }
+  });
+
+  }
+
+  setTimeout(function() {
+  hideDonation()
+  }, 5000);
+
+  });
+
+
+  }
+
+  var machine1 = $("#machine1").slotMachine({
+  active: 0,
+  delay: 150
+  });
+  setTimeout(() => {
+  machine1 = $("#machine1").slotMachine({
+  delay: 250
+  });
+  }, 500);
+  setTimeout(() => {
+  machine1 = $("#machine1").slotMachine({
+  delay: 400
+  });
+  }, 500);
+  var results;
+  function onComplete(active) {
+  this.element[0].id
+  $("#machine1Result").text(this.active);
+  results[0] = getMachineResult($('#machine1'), this.active);
+  $("#results").text(results.join(", "));
+  }
+  function getMachineResult(i_jqMachine, i_iActive){
+  return i_jqMachine.find('span.option > span').eq(i_iActive + 1).text();
+  }
+  $("#randomizeButton").click(function() {
+  results = [];
+  $("#results").css('color', 'white').text("");
+  machine1.shuffle(20, onComplete);
+  });
+
+script(src='/soundmanager/script/soundmanager2.js')

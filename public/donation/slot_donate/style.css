@@ -1,0 +1,79 @@
+.slotMachineNoTransition {
+  transition: none !important;
+}
+
+.slotMachineBlurFast {
+  filter: blur(5px);
+}
+
+.slotMachineBlurMedium {
+  filter: blur(3px);
+}
+
+.slotMachineBlurSlow {
+  filter: blur(2px);
+}
+
+.slotMachineBlurTurtle {
+  filter: blur(1px);
+}
+
+.machine {
+  padding: 84px 0;
+}
+.machine .wrap {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+.machine .column {
+  display: inline-block;
+  width: 40%;
+  padding: 0 5%;
+  float: left;
+}
+.machine .row {
+  clear: both;
+}
+.machine .optionContainer, .machine .option {
+  width: 50%;
+  height: 140px;
+}
+.machine .optionContainer {
+  color: #fefefe;
+  /*background: ;*/
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  border-radius: 5px;
+  margin: auto;
+}
+.machine .option {
+  box-sizing: border-box;
+  display: block;
+  padding: 28px;
+  text-align: center;
+  font-size: 50px;
+}
+.machine .option span {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.machine .mashupButton {
+  position: relative;
+  padding: 28px 0 0;
+  text-align: center;
+}
+.machine .mashupButton .button {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 28px 56px;
+  font-size: 32px;
+  box-shadow: 0 7px 16px black;
+}
+.machine .mashupButton .button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+.machine .mashupButton .button:active {
+  transform: translateY(4px);
+}

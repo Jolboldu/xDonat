@@ -37,7 +37,7 @@ header#header
           li.menu-active
             a(href='/') Домой
           li
-            a(href='/about') О нас
+            a(href='#') О нас
           // <li><a href="pricing.html">Pricing</a></li>
           //
             <li class="menu-has-children"><a href="">Pages</a>
@@ -53,7 +53,8 @@ header#header
             </ul>
             </li>
           li
-            a(href='/auth/twitch') Войти/Регистрация
+            a(href='/auth/twitch') Получи - Ранний доступ
+            //- a(href='/auth/twitch') Войти/Регистрация
 // end header Area
 // start banner Area
 section.home-banner-area
@@ -90,8 +91,8 @@ section.home-banner-area
          img.img-fluid(src='dir_landing/img/banner-img.png' alt='')
 // End banner Area
 // Start about-video Area
-hr
-section.about-video-area.section-gap
+//- hr
+//- section.about-video-area.section-gap
   .container
     .row.d-flex.justify-content-center
       .col-lg-12    
@@ -101,6 +102,25 @@ section.about-video-area.section-gap
         //-   img.img-fluid.mx-auto(src='dir_landing/img/play-btn.png' alt='')
 // End about-video Area
 // Start Pricing Area
+// Start about Area
+hr
+section.about-area
+  .container
+    .row.align-items-center
+      .col-lg-5.home-about-left
+        img.img-fluid(src='/donation/wheel_donate/wheel_back.png', alt='')
+      .offset-lg-1.col-lg-5.home-about-right
+        h1
+          | Колесо Фортуны и Слот
+        p
+        li Интерактивная игра - увеличит вовлеченность вашей аудитории на трансляции.
+        li 3-х кратно увеличит размер и количество донатов
+        li
+          | Интересный контент и необычная атмосфера, которую вы можете создать при помощи игр и будущих виджетов
+        p
+        a.primary-btn.text-uppercase(href='/auth/twitch') Получить игры
+// End about Area
+
 hr
 section.pricing-area
   .container
@@ -116,27 +136,29 @@ section.pricing-area
           .top-sec.d-flex.justify-content-between
             .top-left
               h4 Начинающий
-              p 7 дней
+              strong 10 дней
             .top-right
               h1 0&#x20BD;
           .end-sec
             ul
+              li Полный доступ к функционалу
               li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
-              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              li Колесо Фортуны + Слот. Игра для твоих зрителей, которая принесет невероятный буст к донатам
               li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
             button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
-      .col-lg-4.col-md-6
+      .col-lg-4.col-md-6(name="pricing")
         .single-price
           .top-sec.d-flex.justify-content-between
             .top-left
               h4 &Pcy;&rcy;&ocy;&fcy;&iecy;&scy;&scy;&icy;&ocy;&ncy;&acy;&lcy;
-              p 1 &mcy;&iecy;&scy;&yacy;&tscy;
+              strong 1 месяц
             .top-right
-              h1 &#x20BD;250
+              h1 &#x20BD;350
           .end-sec
             ul
+              li Полный доступ к функционалу
               li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
-              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              li Колесо Фортуны + Слот. Игра для твоих зрителей, которая принесет невероятный буст к донатам
               li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
             button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
       .col-lg-4.col-md-6
@@ -144,13 +166,18 @@ section.pricing-area
           .top-sec.d-flex.justify-content-between
             .top-left
               h4 &Pcy;&rcy;&ocy;&fcy;&iecy;&scy;&scy;&icy;&ocy;&ncy;&acy;&lcy;
-              p 2 &mcy;&iecy;&scy;&yacy;&tscy;&acy;
+              strong(style='color:#53b332') 2 месяца
             .top-right
               h1 &#x20BD;499
           .end-sec
             ul
-              li 0% &kcy;&ocy;&mcy;&icy;&scy;&scy;&icy;&jcy;
-              li &Icy;&ncy;&tcy;&iecy;&rcy;&acy;&kcy;&tcy;&icy;&vcy;&ncy;&acy;&yacy; &icy;&gcy;&rcy;&acy;
+              h5
+                li Самое выгодное предложение
+              li Полный доступ к функционалу
+              strong
+                li Ранний доступ к новым играм и виджетам
+              li 0% процентов комиссий
+              li Колесо Фортуны + Слот. Игра для твоих зрителей, которая принесет невероятный буст к донатам
               li &Pcy;&ocy;&dcy;&dcy;&iecy;&rcy;&zhcy;&kcy;&acy; &quot;&YAcy;&ncy;&dcy;&iecy;&kcy;&scy;.&Dcy;&iecy;&ncy;&softcy;&gcy;&icy;&quot;
             button.primary-btn.price-btn.mt-20 &Vcy;&ycy;&bcy;&rcy;&acy;&tcy;&softcy; &pcy;&lcy;&acy;&ncy;
 // End Pricing Area
@@ -159,14 +186,14 @@ footer.footer-area.section-gap
   .container
     .row
       .col-lg-2.col-md-6.single-footer-widget
-        h4 &nbsp;&Ocy; &ncy;&acy;&scy;
+        h4 О нас
         ul
           li
-            a(href='#') &Pcy;&ocy;&mcy;&ocy;&shchcy;&softcy;
+            a(href='#') Помощь
           li
-            a(href='#') &Kcy;&ocy;&ncy;&tcy;&acy;&kcy;&tcy;&ycy;
+            a(href='https://vk.com/xdonat_andrey' target='_blank') Контакты
           li
-            a(href='#') &Kcy;&acy;&lcy;&softcy;&kcy;&ucy;&lcy;&yacy;&tcy;&ocy;&rcy;
+            a(href='#') Калькулятор
       .col-lg-4.col-md-6.single-footer-widget
         h4 &Rcy;&acy;&scy;&scy;&ycy;&lcy;&kcy;&acy;
         p &Ocy;&tcy;&pcy;&rcy;&acy;&vcy;&lcy;&yacy;&iecy;&mcy; &lcy;&ucy;&chcy;&shcy;&icy;&iecy; &pcy;&rcy;&ocy;&mcy;&ocy; &acy;&kcy;&tscy;&icy;&icy;!
