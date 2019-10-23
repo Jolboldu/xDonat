@@ -1,9 +1,8 @@
 doctype html
 head
   meta(charset='UTF-8')
-  title jQuery Slot Machine
+  title Slot
   link(rel='stylesheet' href='/donation/slot_donate/style.css')
-  title Slots
   style(type='text/css').
     .center {
     margin: auto;
@@ -13,12 +12,12 @@ head
     padding: 10px;
     }
 .machine
+  h1#donater-info
+  h2#amount
   #machine1.optionContainer
     span.option.center(style='border: 5px')
-      span Подятнись
-.row
-  .mashupButton
-    button#randomizeButton.button Go
+      span#donation(style='display:none')
+
 // </div>
 // </div>
 // partial
@@ -26,6 +25,38 @@ script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
 script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1411288/jquery.slotmachine.min.js')
 script(src='/socket.io/socket.io.js')
 script(type='text/javascript').
+
+
+  var machine1 = $("#machine1").slotMachine({
+  	active: 0,
+  	delay: 150
+  });
+  
+  setTimeout(() => {
+  	machine1 = $("#machine1").slotMachine({
+  	delay: 250
+  });
+  }, 500);
+  
+  setTimeout(() => {
+  	machine1 = $("#machine1").slotMachine({
+  	delay: 400
+  });
+  }, 500);
+  
+  var results;
+  
+  function onComplete(active) {
+  	this.element[0].id
+  	$("#machine1Result").text(this.active);
+  	results[0] = getMachineResult($('#machine1'), this.active);
+  	$("#results").text(results.join(", "));
+  }
+  function getMachineResult(i_jqMachine, i_iActive){
+  	return i_jqMachine.find('span.option > span').eq(i_iActive + 1).text();
+  }
+
+
 
   var socket = io();
   if (socket !== null) {
@@ -47,7 +78,8 @@ script(type='text/javascript').
 
   function soundSetup(){
 
-  var soundUrl = "/sounds/" + "#{user_token}.mp3"
+  //- var soundUrl = "/sounds/" + "#{user_token}.mp3"
+  var soundUrl = "/donation/slot_donate/sound.mp3"
   console.log(soundUrl)
 
   soundManager.setup({
@@ -61,48 +93,49 @@ script(type='text/javascript').
       },
       ontimeout: function() {
           console.log('Could not load file')
-      }
+      },
+      onfinish: function() {
+      console.log('finish')
+      //- hideDonation();
+ 	  }
+
   });
+
+}
+
+  });
+
 
   }
 
-  setTimeout(function() {
-  hideDonation()
-  }, 5000);
 
-  });
+  function showDonation(data)
+  {
+  	var donationObj = JSON.parse(data)
+    //- document.getElementById("donater-info").innerHTML = donationObj.donater;
+    //- document.getElementById("amount").innerHTML = donationObj.amount + ' рублей';
+  
+    var x = document.getElementById("donation");
+    x.style.display = "block";
+
+    document.getElementById("donation").innerHTML = "Приветы";
 
 
+    results = [];
+  	$("#results").css('color', 'white').text("");
+  	machine1.shuffle(20, onComplete);
   }
 
-  var machine1 = $("#machine1").slotMachine({
-  active: 0,
-  delay: 150
-  });
-  setTimeout(() => {
-  machine1 = $("#machine1").slotMachine({
-  delay: 250
-  });
-  }, 500);
-  setTimeout(() => {
-  machine1 = $("#machine1").slotMachine({
-  delay: 400
-  });
-  }, 500);
-  var results;
-  function onComplete(active) {
-  this.element[0].id
-  $("#machine1Result").text(this.active);
-  results[0] = getMachineResult($('#machine1'), this.active);
-  $("#results").text(results.join(", "));
+  function hideDonation() 
+  {
+ 	var x = document.getElementById("donation");
+    x.style.display = "none";
   }
-  function getMachineResult(i_jqMachine, i_iActive){
-  return i_jqMachine.find('span.option > span').eq(i_iActive + 1).text();
-  }
-  $("#randomizeButton").click(function() {
-  results = [];
-  $("#results").css('color', 'white').text("");
-  machine1.shuffle(20, onComplete);
-  });
+	  
+  //- $("#randomizeButton").click(function() {
+  //- results = [];
+  //- $("#results").css('color', 'white').text("");
+  //- machine1.shuffle(20, onComplete);
+  //- });
 
 script(src='/soundmanager/script/soundmanager2.js')

@@ -145,6 +145,9 @@ socketApi.wheel_donate = function(data) {
 socketApi.slot_donate = function(data) {
    let isDonation = true
 
+
+   // here create array of examples
+
     if(isDonation)
     {
     // таймАут стоит временно, чтобы проверить работу Сокетов
@@ -183,10 +186,17 @@ socketApi.slot_donate = function(data) {
     
        // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
        var dataK = JSON.stringify(data);
-       io.to(room).emit('message', dataK)
+       io.to(room).emit('slot', dataK)
       }
-      googleVoice();
+      // googleVoice();
     
+           // usertoken это рум
+       // room = "abc123";
+       room = data.userId
+    
+       // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149}
+       var dataK = JSON.stringify(data);
+       io.to(room).emit('slot', dataK)
       
 
 

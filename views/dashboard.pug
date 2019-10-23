@@ -15,7 +15,21 @@ head
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet')
   link(rel='stylesheet' href='assets/libs/css/style.css')
-  title XDonat - Панель управления
+  script(type='text/javascript').
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(55904455, "init", {
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true
+    });
+  noscript
+    div
+      img(src='https://mc.yandex.ru/watch/55904455', style='position:absolute; left:-9999px;', alt='')
+
+  title XDonat - Панель 
 // ==============================================================
 // main wrapper
 // ==============================================================
@@ -57,13 +71,15 @@ head
         // ==============================================================
         // end pageheader
         // ==============================================================
+        - var username = data.username;
+        - var link = "/streamer/";
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-              a.breadcrumb-link.active(href='/widgets/slot')
+              a.breadcrumb-link.active(href=link + username target='_blank')
                 .card
                   .card-body
-                    h3.text-muted.font-weight-bold Рулетка с вопросами
+                    h3.text-muted.font-weight-bold Ссылка на вашу страницу
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
               a.breadcrumb-link.active(href='/widgets/wheel_of_fortune')
                 .card
@@ -73,7 +89,7 @@ head
               a.breadcrumb-link.active(href='/widgets/text_donate')
                 .card
                   .card-body
-                    h3.text-muted.font-weight-bold Обычный текст
+                    h3.text-muted.font-weight-bold Текстовое Сообщение
     // ==============================================================
     // footer
     // ==============================================================
