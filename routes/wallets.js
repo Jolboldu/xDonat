@@ -107,7 +107,11 @@ router.post('/yandex/requests', (req, res) => {
                     if(req.body.sha1_hash == sha1(wholeInfo)){
                         //check if codepro is true
                         res.sendStatus(200);
-                        handleRequest(req, res, data)       
+                        if(req.body.codepro == true)
+                        {
+                            logger.recordError('wallets.js', 'failure attempt of faking payment(codepro:true)', error);
+                        }else
+                            handleRequest(req, res, data)       
                     }else{
                         logger.recordError('wallets.js', 'failure attempt of faking payment or no yandex secret', error);
                     }
