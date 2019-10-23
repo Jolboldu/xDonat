@@ -22,7 +22,7 @@ var WalletRouter = require('./routes/wallets');
 var widgetsRouter = require('./routes/widgets');
 var statsRouter = require('./routes/stats');
 var streamerRouter = require('./routes/streamer');
-var gameSetupRouter = require('/routes/gameSetup')
+var gameSetupRouter = require('./routes/gameSetup')
 // var profileRouter = require('./routes/profile');
 
 var keys = require('./constants');
