@@ -28,7 +28,7 @@ router.post('/wheel', authCheck, (req,res)=>{
 		if(err)
 	        logger.recordError('gameSetup.js', 'setup new wheel', err);
 		else
-			res.send("ok");
+			res.redirect('/dashboard/');
 	})
 });
 
@@ -39,7 +39,8 @@ router.get('/wheel', authCheck, (req,res)=>{
 	        logger.recordError('gameSetup.js', 'getting users wheel', err);
 		else{
 			if(data){
-				res.json(data);
+				// res.json(data);
+				res.redirect('/dashboard/');
 			}
 			else{
 				res.json("no data");

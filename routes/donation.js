@@ -44,11 +44,30 @@
 
   // Wheel donate route
   router.get('/wheel_donate', (req, res) => {
-    // var data = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149, "userId": "5d874102e2db820e5055341a"}
+    // var fdata = {"donater": "akunMata", "text": "привет Аниме, как твои дела, покажи сиськи", "amount": 149, "userId": "5da706d8758bad4300e2c8e8"}
 
     let user_token = req.query.token
-    res.render('donation/wheel_of_fortune', {user_token: user_token});
-    // socketLib.wheel_donate(data);
+    
+    models.Wheel.findOne({userId: req.user.id}, (err, data) => {
+    if(err)
+      logger.recordError('donation.js', 'find and render gameData', err);
+    else{
+      if(data){
+          res.render('donation/wheel_of_fortune', {user_token: user_token, gameData: data});
+          console.log(data);
+      }
+      else{
+           // res.json("no data");
+          res.render('donation/wheel_of_fortune', {user_token: user_token});
+          console.log('no data');
+      }
+    }
+    })
+
+    // res.render('donation/wheel_of_fortune', {user_token: user_token});
+
+
+    // socketLib.wheel_donate(fdata);
   });
 
   router.post('/ttsc', function(req, res){

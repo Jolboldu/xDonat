@@ -17,7 +17,22 @@ router.get('/slot', authCheck, (req, res) => {
 
 router.get('/wheel_of_fortune', authCheck, (req, res) => {
     // res.send(req.user);
-    res.render('widgets/wheel_of_fortune', { data: req.user });
+    models.Wheel.findOne({userId: req.user.id}, (err, data) => {
+    if(err)
+        logger.recordError('gameSetup.js', 'getting users wheel', err);
+    else{
+        if(data){
+            res.render('widgets/wheel_of_fortune', { data: req.user, gameData: data });
+            console.log(data);
+        }
+        else{
+            // res.json("no data");
+            res.render('widgets/wheel_of_fortune', { data: req.user });
+            console.log('no data');
+        }
+    }
+})
+    
 });
 
 router.get('/text_donate', authCheck, (req, res) => {

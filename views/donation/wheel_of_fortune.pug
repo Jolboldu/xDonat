@@ -30,7 +30,7 @@ div(align='center')
     x.style.display = "block";
     }
     // Create new wheel object specifying the parameters at creation time.
-    let theWheel = new Winwheel({
+    let theWheel = new Winwheel({ 
     'outerRadius': 212,        // Set outer radius so wheel fits inside the background.
     'innerRadius': 75,         // Make wheel hollow so segments don't go all way to center.
     'textFontSize': 24,         // Set default font size for the segments.
@@ -39,16 +39,16 @@ div(align='center')
     'numSegments': 10,         // Specify number of segments.
     'segments':             // Define segments including colour and text.
     [                               // font size and test colour overridden on backrupt segments.
-    { 'fillStyle': '#ee1c24', 'text': '30', 'message': 'Покажи плиз сиськи' },
-    { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'message': 'К успеху шёл, не фортануло', 'textFontSize': 12 },
-    { 'fillStyle': '#f6989d', 'text': '60', 'message': 'Сегодня видел как ты кекал на улице' },
-    { 'fillStyle': '#00aef0', 'text': '75', 'message': 'З' },
-    { 'fillStyle': '#f26522', 'text': '50', 'message': 'алло' },
-    { 'fillStyle': '#000000', 'text': 'БАНКРОТ', 'message': 'Денег нет, но вы держитесь', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
-    { 'fillStyle': '#e70697', 'text': '30', 'message': 'Не хочешь ни с кем делить мужчину - НЕ ПИЛИ его' },
-    { 'fillStyle': '#fff200', 'text': '60', 'message': 'Сколько стоит приват? а а а' },
-    { 'fillStyle': '#f6989d', 'text': '70', 'message': 'Что думаешь по поводу' },
-    { 'fillStyle': '#ee1c24', 'text': '35', 'message': 'Одни верят в Бога, Другие в деньги а ты?' },
+    { 'fillStyle': '#ee1c24', 'text': '30', 'message': '#{gameData.section1}' },
+    { 'fillStyle': '#ffffff', 'text': 'НЕ ФОРТАНУЛО', 'message': '#{gameData.section2}', 'textFontSize': 12 },
+    { 'fillStyle': '#f6989d', 'text': '60', 'message': '#{gameData.section3}' },
+    { 'fillStyle': '#00aef0', 'text': '75', 'message': '#{gameData.section4}' },
+    { 'fillStyle': '#f26522', 'text': '50', 'message': '#{gameData.section5}' },
+    { 'fillStyle': '#000000', 'text': 'ДЖЕКПОТ', 'message': '#{gameData.section6}', 'textFontSize': 16, 'textFillStyle': '#ffffff' },
+    { 'fillStyle': '#e70697', 'text': '30', 'message': '#{gameData.section7}' },
+    { 'fillStyle': '#fff200', 'text': '60', 'message': '#{gameData.section8}' },
+    { 'fillStyle': '#f6989d', 'text': '70', 'message': '#{gameData.section9}' },
+    { 'fillStyle': '#ee1c24', 'text': '35', 'message': '#{gameData.section10}' },
 
     //- { 'fillStyle': '#3cb878', 'text': '50', 'message': 'алло' },
     //- { 'fillStyle': '#f26522', 'text': '80', 'message': 'алло' },
