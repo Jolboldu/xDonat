@@ -73,15 +73,22 @@ head
                   input(type='text', name='section9', placeholder='75')
                   input(type='text', name='section10', placeholder='35')
                   br
-                input(type='submit', value='submit' class='btn')
-                //- var gameData = #{gameData};
-                  //- #data
+                input(type='submit', value='Сохранить' class='btn')                                          
+                hr
+                h4 Скопируйте эту ссылку и вставьте OBS
+                - var userId = data._id;
+                input#myInput(type='text', value='https://www.xdonat.com/donation/wheel_donate?token=' + userId)
+                hr
+                button(type='button' onclick='copyText()', class='btn') СКОПИРОВАТЬ ССЫЛКУ
+
               - var user = gameData
-              if user.section1
-                table(style='width:100%' class='table')
-                  tbody
+              if user
+                hr
+                table(style='width:100%').table-dark
+                  thead
                     tr
-                      th Ваши Варианты
+                      th Желания на Колесо: 
+                  tbody 
                     tr
                       td #{gameData.section1}
                     tr
@@ -101,13 +108,7 @@ head
                     tr
                       td #{gameData.section9}
                     tr
-                      td #{gameData.section10}                                                                                        
-                hr
-                h4 Скопируйте эту ссылку и вставьте в программу для вещания стримов
-                - var userId = data._id;
-                input#myInput(type='text', value='https://www.xdonat.com/donation/wheel_donate?token=' + userId)
-                hr
-                button(type='button' onclick='copyText()', class='btn') СКОПИРОВАТЬ ССЫЛКУ
+                      td #{gameData.section10}                 
 
     // ==============================================================
     // footer

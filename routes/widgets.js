@@ -27,7 +27,7 @@ router.get('/wheel_of_fortune', authCheck, (req, res) => {
         }
         else{
             // res.json("no data");
-            res.render('widgets/wheel_of_fortune', { data: req.user });
+            res.render('widgets/wheel_of_fortune', { data: req.user, gameData: data });
             console.log('no data');
         }
     }

@@ -73,28 +73,29 @@ head
         if yandexData
           .container
             .col-md-8.col-md-offset-3
-              h6.display-6.m-b-2 Яндекс деньги подключены &#10004;
+              h5.display-4.m-b-2 Яндекс деньги подключены &#10004;
         else
           .container
             .col-md-8.col-md-offset-3
-              h6.display-6.m-b-2 Яндекс Деньги
+              h6.display-7.m-b-2 Яндекс Деньги
 
               // Настройка оплаты
               form(method='POST' action='/dashboard/payment_settings')
                 div.form-group
-                  label(for='address') Адрес кошелька:
+                  label(for='address') Вставьте адрес кошелька:
                   input#name.form-control(type='text', placeholder='4100...' name='address' maxlength="15")
                 div.form-group
-                  label(for='Secret Word') Секретное слово:
-                  p
-                    | 1. Перейдите по 
-                    a(href='#') ссылке
-                    |  и вставьте туда: https://xdonat.com/wallets/yandex/requests                  
-                  p 2. Скопируйте на этой странице 'секрет' и вставьте в поле ниже
-                  input#email.form-control(type='text', placeholder='' name='secret')                  
-                div.form-group
-                  label(for='email') Email:
-                  input#email.form-control(type='email', placeholder='papech@email.com' name='email')
+                  ul.list-group
+                    li Перейдите по 
+                      a(href='https://money.yandex.ru/myservices/online.xml' target='_blank' style='color:#0000FF') ссылке
+                      |  и вставьте туда наш адрес: 
+                      strong https://xdonat.com/wallets/yandex/requests
+                      hr
+                    li
+                      img(src='/dashboard/assets/images/instructionYandex.png' alt='Инструкция')                  
+                    li Вставьте 
+                      strong Секретное слово
+                  input.form-control(type='text', placeholder='Секретное слово...' name='secret')                  
                 button.btn.btn-primary(type='submit') Отправить
 
     // ==============================================================

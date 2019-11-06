@@ -28,7 +28,7 @@ router.post('/wheel', authCheck, (req,res)=>{
 		if(err)
 	        logger.recordError('gameSetup.js', 'setup new wheel', err);
 		else
-			res.redirect('/dashboard/');
+			res.redirect('widgets/wheel_of_fortune');
 	})
 });
 

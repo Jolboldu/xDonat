@@ -27,7 +27,7 @@ var yandexSchema = new Schema({
 	},
 	emailOfYandex : {
 		type : String,
-		required : true
+		required : false
 	},
 	secretOfWallet : {
 		type : String,

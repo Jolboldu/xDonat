@@ -40,7 +40,7 @@ router.get('/payment_settings', authCheck, (req, res) => {
 router.post('/payment_settings', authCheck, (req, res) => {
 
     validator.trim(req.body.address);
-    validator.trim(req.body.email);
+    // validator.trim(req.body.email);
     validator.trim(req.body.secret);
 
     models.YandexWallet.findOne({ userId: req.user.id }, (err, data) => {
@@ -51,12 +51,13 @@ router.post('/payment_settings', authCheck, (req, res) => {
             if (!data){ 
                 
                 //check if data is valid
-                if( req.body.address.length == 15 && validator.isEmail(req.body.email) &&  req.body.secret.length == 24) {
+                // if( req.body.address.length == 15 && validator.isEmail(req.body.email) &&  req.body.secret.length == 24) {
+                if( req.body.address.length == 15 &&  req.body.secret.length == 24) {
         
                     var newYandexWallet = models.YandexWallet({
                         userId: req.user.id,
                         addressOfWallet: req.body.address,
-                        emailOfYandex: req.body.email,
+                        // emailOfYandex: req.body.email,
                         secretOfWallet: req.body.secret,
                     }).save((error) => {
                         if(error)
