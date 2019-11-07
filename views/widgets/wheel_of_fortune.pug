@@ -60,29 +60,13 @@ head
         .ecommerce-widget
           .row
             .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-12
-              form(action='/gamesetup/wheel', method='POST')
-                div.form-group
-                  input(type='text', name='section1', placeholder= '30 баллов')
-                  input(type='text', name='section2', placeholder='НЕ ФОРТАНУЛО')
-                  input(type='text', name='section3', placeholder='60')
-                  input(type='text', name='section4', placeholder='75')
-                  input(type='text', name='section5', placeholder='50')
-                  input(type='text', name='section6', placeholder='ДЖЕКПОТ')
-                  input(type='text', name='section7', placeholder='30')
-                  input(type='text', name='section8', placeholder='60')
-                  input(type='text', name='section9', placeholder='75')
-                  input(type='text', name='section10', placeholder='35')
-                  br
-                input(type='submit', value='Сохранить' class='btn')                                          
-                hr
+              - var gData = gameData
+              if gData
                 h4 Скопируйте эту ссылку и вставьте OBS
                 - var userId = data._id;
                 input#myInput(type='text', value='https://www.xdonat.com/donation/wheel_donate?token=' + userId)
                 hr
                 button(type='button' onclick='copyText()', class='btn') СКОПИРОВАТЬ ССЫЛКУ
-
-              - var user = gameData
-              if user
                 hr
                 table(style='width:100%').table-dark
                   thead
@@ -108,7 +92,23 @@ head
                     tr
                       td #{gameData.section9}
                     tr
-                      td #{gameData.section10}                 
+                      td #{gameData.section10}
+              hr
+              p Добавьте варианты для колеса:   
+              form(action='/gamesetup/wheel', method='POST')
+                div.form-group
+                  input(type='text', name='section1', placeholder= '30 баллов')
+                  input(type='text', name='section2', placeholder='НЕ ФОРТАНУЛО')
+                  input(type='text', name='section3', placeholder='60')
+                  input(type='text', name='section4', placeholder='75')
+                  input(type='text', name='section5', placeholder='50')
+                  input(type='text', name='section6', placeholder='ДЖЕКПОТ')
+                  input(type='text', name='section7', placeholder='30')
+                  input(type='text', name='section8', placeholder='60')
+                  input(type='text', name='section9', placeholder='75')
+                  input(type='text', name='section10', placeholder='35')
+                  br
+                input(type='submit', value='Сохранить' class='btn')                                                         
 
     // ==============================================================
     // footer
