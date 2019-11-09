@@ -81,12 +81,12 @@ html
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
             else.</small>
         select.form-control(name='game' id='game_type' required)
+          option(value='wheel_donate' id='wheel_d') Колесо Фортуны
           option(value='text_donate' id='text_d') Текстовое сообщение
           //- option(value='slot_donate' id='slots_d') Cлоты
-          option(value='wheel_donate' id='wheel_d') Колесо Фортуны
-        #message.form-group
+        #message.form-group(style='display:none')
           label(for='Message') Сообщение
-          input.form-control(type='text', name='text' placeholder='Привет' required)
+          input.form-control(type='text', name='text' placeholder='что-нибудь умное...')
         .form-group  
           input(type='hidden', name='reciever', value=yandex_data.addressOfWallet required)
         .form-group
@@ -113,9 +113,11 @@ html
 script.
   $('#game_type').change(function() {
   if ($(this).val() === 'wheel_donate') {
+    $("#message").prop('required', false);
     $('#message').hide();
   }
   if ($(this).val() === 'text_donate') {
+    $("#message").prop('required', true);
     $('#message').show();
   }
   });

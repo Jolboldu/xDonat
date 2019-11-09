@@ -97,16 +97,16 @@ head
               p Добавьте варианты для колеса:   
               form(action='/gamesetup/wheel', method='POST')
                 div.form-group
-                  input(type='text', name='section1', placeholder= '30 баллов')
-                  input(type='text', name='section2', placeholder='НЕ ФОРТАНУЛО')
-                  input(type='text', name='section3', placeholder='60')
-                  input(type='text', name='section4', placeholder='75')
-                  input(type='text', name='section5', placeholder='50')
-                  input(type='text', name='section6', placeholder='ДЖЕКПОТ')
-                  input(type='text', name='section7', placeholder='30')
-                  input(type='text', name='section8', placeholder='60')
-                  input(type='text', name='section9', placeholder='75')
-                  input(type='text', name='section10', placeholder='35')
+                  input(type='text', name='section1', placeholder= '30 баллов' required)
+                  input(type='text', name='section2', placeholder='НЕ ФОРТАНУЛО' required)
+                  input(type='text', name='section3', placeholder='60' required)
+                  input(type='text', name='section4', placeholder='75' required)
+                  input(type='text', name='section5', placeholder='50' required)
+                  input(type='text', name='section6', placeholder='ДЖЕКПОТ' required)
+                  input(type='text', name='section7', placeholder='30' required)
+                  input(type='text', name='section8', placeholder='60' required)
+                  input(type='text', name='section9', placeholder='75' required)
+                  input(type='text', name='section10', placeholder='35' required)
                   br
                 input(type='submit', value='Сохранить' class='btn')                                                         
 
